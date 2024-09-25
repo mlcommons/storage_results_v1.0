@@ -1,0 +1,639 @@
+{
+	"networks": [
+		{
+			"network_name": "client_to_switch",
+			"network_type": "Ethernet",
+			"bitrate": 100,
+			"protocols": [ "Proprietary access protocol", "RDMA" ]
+		},
+		{
+			"network_name": "storage_to_switch",
+			"network_type": "Ethernet",
+			"bitrate": 200,
+			"protocols": [ "Proprietary access protocol", "RDMA" ]
+		}
+	],
+	"nodes": [
+		{
+			"node_type_name": "host_server_type1",
+			"config_options": [ "cpupower frequency-set -g performance"],
+			"CPU": {
+				"vendor_and_model_name": "Montage Jintide(R) C6230R"
+			},
+			"DRAM": {
+				"capacity_MiB": 196608
+			},
+			"accelerators": [ { "vendor_and_model": "NVIDIA H100", "count_of_this_type": 5 } ],
+			"nic_ports": [
+				{
+					"network_name": "client_to_switch",
+					"bitrate": 100,
+					"count_of_this_type": 2,
+					"protocols": [ "Proprietary access protocol", "RDMA" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Hold the OS" ],
+					"drive_type": "HDD",
+					"capacity_GiB": 837.3,
+					"count_of_this_type": 1
+				}
+		       	]
+		},
+		{
+			"node_type_name": "host_server_type2",
+			"config_options": [ "cpupower frequency-set -g performance"],
+			"CPU": {
+				"vendor_and_model_name": "Montage Jintide(R) C6248R"
+			},
+			"DRAM": {
+				"capacity_MiB": 196608
+			},
+			"accelerators": [ { "vendor_and_model": "NVIDIA H100", "count_of_this_type": 5 } ],
+			"nic_ports": [
+				{
+					"network_name": "client_to_switch",
+					"bitrate": 100,
+					"count_of_this_type": 2,
+					"protocols": [ "Proprietary access protocol", "RDMA" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Hold the OS" ],
+					"drive_type": "HDD",
+					"capacity_GiB": 837.3,
+					"count_of_this_type": 1
+				}
+		       	]
+		},
+		{
+			"node_type_name": "host_server_type3",
+			"config_options": [ "cpupower frequency-set -g performance"],
+			"CPU": {
+				"vendor_and_model_name": "Kunpeng-920"
+			},
+			"DRAM": {
+				"capacity_MiB": 262144
+			},
+			"accelerators": [ { "vendor_and_model": "NVIDIA H100", "count_of_this_type": 5 } ],
+			"nic_ports": [
+				{
+					"network_name": "client_to_switch",
+					"bitrate": 100,
+					"count_of_this_type": 2,
+					"protocols": [ "Proprietary access protocol", "RDMA" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Hold the OS" ],
+					"drive_type": "HDD",
+					"capacity_GiB": 837.3,
+					"count_of_this_type": 1
+				}
+		       	]
+		},
+		{
+			"node_type_name": "A800_Controller1",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "HiSilicon Kunpeng-920"
+			},
+			"DRAM": {
+				"capacity_MiB": 1048576
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "storage_to_switch",
+					"bitrate": 200,
+					"count_of_this_type": 16,
+					"protocols": [ "RDMA" ]
+				}
+			],
+			"drives": [
+				{
+					"drive_type": "SSD",
+					"capacity_GiB": 7152,
+					"count_of_this_type": 32
+				}
+		       	]
+		},
+		{
+			"node_type_name": "A800_Controller2",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "HiSilicon Kunpeng-920"
+			},
+			"DRAM": {
+				"capacity_MiB": 1048576
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "storage_to_switch",
+					"bitrate": 200,
+					"count_of_this_type": 16,
+					"protocols": [ "RDMA" ]
+				}
+			],
+			"drives": [
+				{
+					"drive_type": "SSD",
+					"capacity_GiB": 7152,
+					"count_of_this_type": 32
+				}
+		       	]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "host1",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host2",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host3",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host4",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host5",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host6",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host7",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host8",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host9",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host10",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host11",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host12",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host13",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host14",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host15",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host16",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host17",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host18",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host19",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host20",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host21",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host22",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host23",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host24",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host25",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host26",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host27",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host28",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host29",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host30",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host31",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host32",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host33",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host34",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host35",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host36",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host37",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host38",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host39",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host40",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host41",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host42",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host43",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host44",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host45",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host46",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host47",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host48",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host49",
+			"node_type_name": "host_server_type2",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host50",
+			"node_type_name": "host_server_type1",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		},
+		{
+			"node_name": "host51",
+			"node_type_name": "host_server_type3",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		}
+	],
+	"storage_system": {
+		"vendor_name": "Huawei",
+		"solution_name": "AI Storage",
+		"model_name": "OceanStor A800",
+		"version": "V700R001C00",
+		"software_defined": "no",
+		"hyperconverged": "no",
+		"solution_type": "Proprietary - OceanStorOS",
+		"client_mount_options": [ "actimeo=86400", "rsize=262144"],
+		"solution_config_options": [ ],
+		"usable_capacity_GiB": 362723,
+		"raw_capacity_GiB": 457764,
+		"software_components": [
+			{
+				"component_name": "OceanStor DataTurbo",
+				"description": "Client running the proprietary access protocol",
+				"runnable_node_type_name": [ "host_server_type1", "host_server_type2", "host_server_type3" ],
+				"connecting_components": [ "OceanStor DataTurbo", "OceanFS" ]
+			},
+			{
+				"component_name": "OceanFS",
+				"description": "Where we store and manage the data",
+				"runnable_node_type_name": [ "A800_Controller1", "A800_Controller2" ],
+				"connecting_components": [ "OceanStor DataTurbo", "OceanFS" ]
+			}
+		]
+	}
+}

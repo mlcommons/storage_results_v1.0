@@ -1,0 +1,13 @@
+- workload=cosmoflow_h100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=2976198
+- ++workload.dataset.data_folder=/lustre/mlperf/client/datagen_cosmoflow_h100
+- ++workload.storage.storage_type=local_fs
+- ++workload.storage.storage_root=/lustre/mlperf/client
+- ++workload.reader.read_threads=2
+- ++workload.reader.prefetch_size=0
+- ++workload.reader.computation_threads=4
+- ++workload.checkpoint.checkpoint_folder=/lustre/mlperf/client/checkpoint_cosmoflow_h100
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

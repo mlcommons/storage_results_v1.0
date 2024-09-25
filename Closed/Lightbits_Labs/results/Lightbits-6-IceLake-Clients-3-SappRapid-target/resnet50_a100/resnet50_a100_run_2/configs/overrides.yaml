@@ -1,0 +1,11 @@
+- workload=resnet50_a100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=114979
+- ++workload.dataset.data_folder=/home/light/resnet50-data
+- ++workload.reader.transfer_size=256
+- ++workload.reader.computation_threads=32
+- ++workload.reader.prefetch_size=0
+- ++workload.reader.read_threads=64
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

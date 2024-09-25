@@ -1,0 +1,60 @@
+{
+	"nodes": [
+		{
+			"node_type_name": "Localhost",
+			"config_options": [ "mem=256G" ],
+			"CPU": {
+				"vendor_and_model_name": "AMD EPYC 9654",
+				"socket_count": 1,
+				"cores_per_socket": 96,
+				"threads_per_socket": 192,
+				"base_frequency": "2.4 GHz",
+				"boost_frequency": "3.7 GHz"
+			},
+			"DRAM": {
+				"capacity_MiB": 768,
+				"class": "DDR5",
+				"frequency": 4800
+			},
+			"accelerators": [
+				{ "vendor_and_model": "NVIDIA H100", "count_of_this_type": "4-58" },
+				{ "vendor_and_model": "NVIDIA A100", "count_of_this_type": "8-20" }
+			],
+			"drives": [
+				{
+					"purpose": [ "Device Under Test" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 7680,
+					"interface": "NVMe",
+					"count_of_this_type": 1,
+					"performance": {
+						"read_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth": "10000 MB/s"
+						},
+						"write_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth": "10000 MB/s"
+						},
+						"read_iops": {
+							"xfer_size_kilobytes": 4,
+							"peak_iops": 3300000
+						},
+						"write_iops": {
+							"xfer_size_kilobytes": 4,
+							"peak_iops": 1000000
+						},
+						"endurance": [ "1 DWPD" ]
+					}
+				}
+			]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "localhost",
+			"node_type_name": "localhost",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		}
+	]
+}

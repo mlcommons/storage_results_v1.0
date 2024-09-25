@@ -1,0 +1,9 @@
+- workload=unet3d_h100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.reader.read_threads=24
+- ++workload.reader.prefetch_size=0
+- ++workload.dataset.data_folder=/9400nvme/unet3d
+- ++workload.dataset.num_files_train=17500
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

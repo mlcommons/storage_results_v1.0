@@ -1,0 +1,146 @@
+{
+	"networks": [
+		{
+			"network_name": "client",
+			"network_type": "InfiniBand",
+			"bitrate": 200,
+			"protocols": [ "Lustre", "RDMA", "IB"]
+		}
+
+	],
+	"nodes": [
+		{
+			"node_type_name": "client",
+			"config_options": [ "echo '40' > /proc/sys/vm/pagecache" ],
+			"CPU": {
+				"vendor_and_model_name": "AMD EPYC 7502P 32-Core Processor",
+				"socket_count": 1,
+				"cores_per_socket": 32,
+				"threads_per_socket": 64,
+				"base_frequency": 2.5,
+				"boost_frequency": 3.3
+			},
+			"DRAM": {
+				"capacity_MiB": 112640,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"accelerators": [ { "vendor_and_model": "NVIDIA H100", "count_of_this_type": 20 } ],
+			"nic_ports": [
+				{
+					"network_name": "client",
+					"bitrate": 200,
+					"count_of_this_type": 2,
+					"protocols": ["Lustre", "RDMA", "IB"]
+				}
+			],
+			"drives": [ ]
+		},
+		{
+			"node_type_name": "metadata server",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "AMD EPYC 7502 32-Core Processor",
+				"socket_count": 1,
+				"cores_per_socket": 32,
+				"threads_per_socket": 32,
+				"base_frequency": 2.45,
+				"boost_frequency": 2.5
+			},
+			"DRAM": {
+				"capacity_MiB": 180244,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "client",
+					"bitrate": 200,
+					"count_of_this_type": 2,
+					"protocols": ["Lustre", "RDMA", "IB" ]
+				},
+				{
+					"network_name": "backend",
+					"bitrate": 200,
+					"count_of_this_type": 2,
+					"protocols": ["Lustre", "RDMA", "IB" ]
+				}
+			]
+		},
+		{
+			"node_type_name": "data",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "AMD EPYC 7502 32-Core Processor",
+				"socket_count": 1,
+				"cores_per_socket": 32,
+				"threads_per_socket": 32,
+				"base_frequency": 3.3,
+				"boost_frequency": 2500
+			},
+			"DRAM": {
+				"capacity_MiB": 206848,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"accelerators": [ ],
+			"drives": [
+				{
+					"purpose": [ "Hold the object data"  ],
+					"drive_type": "SSD",
+					"capacity_GiB": 3576.27,
+					"interface": "NVMe",
+					"count_of_this_type": 24,
+					"performance": {
+						"read_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth": 85
+						},
+						"write_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth": 65
+						}
+					}
+				}
+			]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "HPE ProLiant DL325 Gen10 Plus",
+			"node_type_name": "client",
+			"benchmark_instances": [
+				{
+					"mapping_type": "container",
+					"cpu_cores": 32,
+					"DRAM_MiB": 112640
+				}
+			]
+		}
+	],
+	"storage_system": {
+		"vendor_name": "Hewlett Packard Enterprise",
+		"solution_name": "HPE Cray C500",
+		"model_name": "HPE Cray C500",
+		"version": "6.7-010",
+		"software_defined": "yes",
+		"solution_type": "Lustre",
+		"client_mount_options": ["default" ],
+		"solution_config_options": ["default" ],
+		"usable_capacity_GiB": 112596.9,
+		"raw_capacity_GiB": 171549.62,
+		"software_components": [
+			{
+				"component_name": "Cray Lustre 2.15",
+				"description": "Lustre build for both client and server",
+				"runnable_node_type_name": [ "client" ]
+			},
+			{
+				"component_name": "ClusterStor Software version 6.7-010",
+				"description": "Software stack for all the storage nodes",
+				"runnable_node_type_name": [ "data" ]
+			}
+		]
+	}
+}

@@ -1,0 +1,138 @@
+hydra:
+  run:
+    dir: 0806_675G_test_7/run3
+  sweep:
+    dir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}
+  launcher:
+    _target_: hydra._internal.core_plugins.basic_launcher.BasicLauncher
+  sweeper:
+    _target_: hydra._internal.core_plugins.basic_sweeper.BasicSweeper
+    max_batch_size: null
+    params: null
+  help:
+    app_name: ${hydra.job.name}
+    header: '${hydra.help.app_name} is powered by Hydra.
+
+      '
+    footer: 'Powered by Hydra (https://hydra.cc)
+
+      Use --hydra-help to view Hydra specific help
+
+      '
+    template: '${hydra.help.header}
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (group=option)
+
+
+      $APP_CONFIG_GROUPS
+
+
+      == Config ==
+
+      Override anything in the config (foo.bar=value)
+
+
+      $CONFIG
+
+
+      ${hydra.help.footer}
+
+      '
+  hydra_help:
+    template: 'Hydra (${hydra.runtime.version})
+
+      See https://hydra.cc for more info.
+
+
+      == Flags ==
+
+      $FLAGS_HELP
+
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (For example, append hydra/job_logging=disabled
+      to command line)
+
+
+      $HYDRA_CONFIG_GROUPS
+
+
+      Use ''--cfg hydra'' to Show the Hydra config.
+
+      '
+    hydra_help: ???
+  hydra_logging:
+    version: 1
+    root:
+      level: ERROR
+    disable_existing_loggers: true
+  job_logging:
+    version: 1
+    root:
+      level: ERROR
+    disable_existing_loggers: true
+  env: {}
+  mode: RUN
+  searchpath: []
+  callbacks: {}
+  output_subdir: configs
+  overrides:
+    hydra:
+    - ++hydra.output_subdir=configs
+    - ++hydra.run.dir=0806_675G_test_7/run3
+    - hydra.mode=RUN
+    task:
+    - workload=unet3d_h100
+    - ++workload.workflow.generate_data=False
+    - ++workload.workflow.train=True
+    - ++workload.dataset.num_files_train=910000
+    - ++workload.dataset.data_folder=/mnt/mltest/unet3d_data
+    - ++workload.dataset.num_subfolders_train=48
+    - ++workload.reader.read_threads=12
+    - ++workload.workflow.profiling=False
+    - ++workload.profiling.profiler=none
+  job:
+    name: main
+    chdir: null
+    override_dirname: ++workload.dataset.data_folder=/mnt/mltest/unet3d_data,++workload.dataset.num_files_train=910000,++workload.dataset.num_subfolders_train=48,++workload.profiling.profiler=none,++workload.reader.read_threads=12,++workload.workflow.generate_data=False,++workload.workflow.profiling=False,++workload.workflow.train=True,workload=unet3d_h100
+    id: ???
+    num: ???
+    config_name: config
+    env_set: {}
+    env_copy: []
+    config:
+      override_dirname:
+        kv_sep: '='
+        item_sep: ','
+        exclude_keys: []
+  runtime:
+    version: 1.2.0
+    version_base: '1.2'
+    cwd: /home/mlperftest/storage-1.0-branch
+    config_sources:
+    - path: hydra.conf
+      schema: pkg
+      provider: hydra
+    - path: /home/mlperftest/storage-1.0-branch/storage-conf
+      schema: file
+      provider: main
+    - path: ''
+      schema: structured
+      provider: schema
+    output_dir: /home/mlperftest/storage-1.0-branch/0806_675G_test_7/run3
+    choices:
+      workload: unet3d_h100
+      hydra/env: default
+      hydra/callbacks: null
+      hydra/job_logging: disabled
+      hydra/hydra_logging: disabled
+      hydra/hydra_help: default
+      hydra/help: default
+      hydra/sweeper: basic
+      hydra/launcher: basic
+      hydra/output: default
+  verbose: false

@@ -1,0 +1,61 @@
+{
+    "overall": {
+        "model": "cosmoflow",
+        "accelerator": "h100",
+        "num_benchmark_runs": 5,
+        "train_num_accelerators": "64",
+        "num_files_train": 2976198,
+        "num_samples_per_file": 1,
+        "train_throughput_mean_samples_per_second": 12555.490584774769,
+        "train_throughput_stdev_samples_per_second": 12.831151455963944,
+        "train_throughput_mean_MB_per_second": 33867.86398140645,
+        "train_throughput_stdev_MB_per_second": 34.61144662577983
+    },
+    "runs": {
+        "result_cosmoflow_16_4accperclient_h100_iter2_1723949500": {
+            "train_throughput_samples_per_second": 12547.266442146838,
+            "train_throughput_MB_per_second": 33845.67973125662,
+            "train_num_accelerators": "64",
+            "model": "cosmoflow",
+            "accelerator": "h100",
+            "num_files_train": 2976198,
+            "num_samples_per_file": 1
+        },
+        "result_cosmoflow_16_4accperclient_h100_iter3_1723949500": {
+            "train_throughput_samples_per_second": 12579.917665994222,
+            "train_throughput_MB_per_second": 33933.7549204038,
+            "train_num_accelerators": "64",
+            "model": "cosmoflow",
+            "accelerator": "h100",
+            "num_files_train": 2976198,
+            "num_samples_per_file": 1
+        },
+        "result_cosmoflow_16_4accperclient_h100_iter4_1723949500": {
+            "train_throughput_samples_per_second": 12548.670109733774,
+            "train_throughput_MB_per_second": 33849.46606063885,
+            "train_num_accelerators": "64",
+            "model": "cosmoflow",
+            "accelerator": "h100",
+            "num_files_train": 2976198,
+            "num_samples_per_file": 1
+        },
+        "result_cosmoflow_16_4accperclient_h100_iter1_1723949500": {
+            "train_throughput_samples_per_second": 12544.953874890754,
+            "train_throughput_MB_per_second": 33839.44168641496,
+            "train_num_accelerators": "64",
+            "model": "cosmoflow",
+            "accelerator": "h100",
+            "num_files_train": 2976198,
+            "num_samples_per_file": 1
+        },
+        "result_cosmoflow_16_4accperclient_h100_iter0_1723949500": {
+            "train_throughput_samples_per_second": 12556.64483110826,
+            "train_throughput_MB_per_second": 33870.97750831802,
+            "train_num_accelerators": "64",
+            "model": "cosmoflow",
+            "accelerator": "h100",
+            "num_files_train": 2976198,
+            "num_samples_per_file": 1
+        }
+    }
+}

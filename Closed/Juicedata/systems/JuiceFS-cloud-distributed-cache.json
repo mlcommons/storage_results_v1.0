@@ -1,0 +1,151 @@
+{
+	"networks": [
+		{
+			"network_name": "client",
+			"network_type": "Ethernet",
+			"bitrate": 100,
+			"protocols": [ "S3" ]
+		}
+	],
+	"nodes": [
+    {
+			"node_type_name": "Client -- AWS m6in.16xlarge",
+			"config_options": [ "mkdir /sys/fs/cgroup/memory_mlperf && echo 32G > /sys/fs/cgroup/memory_mlperf/memory.max" ],
+			"CPU": {
+				"vendor_and_model_name": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+				"socket_count": 1,
+				"cores_per_socket": 32,
+				"threads_per_socket": 64,
+				"base_frequency": 2.9
+			},
+			"DRAM": {
+				"capacity_GiB": 256,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"nic_ports": [
+				{
+					"network_name": "Client",
+					"bitrate": 100,
+					"count_of_this_type": 1,
+					"protocols": [ "S3", "Proprietary - JuiceFS" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Hold the OS" ],
+					"drive_type": "EBS gp2",
+					"capacity_GiB": 30,
+					"count_of_this_type": 1,
+				}]
+		},
+		{
+			"node_type_name": "Distributed cache -- AWS m6idn.16xlarge",
+			"config_options": [],
+			"CPU": {
+				"vendor_and_model_name": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+				"socket_count": 1,
+				"cores_per_socket": 32,
+				"threads_per_socket": 64,
+				"base_frequency": 2.9
+			},
+			"DRAM": {
+				"capacity_GiB": 256,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"nic_ports": [
+				{
+					"network_name": "Distributed cache",
+					"bitrate": 100,
+					"count_of_this_type": 1,
+					"protocols": [ "S3", "Proprietary - JuiceFS" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Hold the OS" ],
+					"drive_type": "EBS gp2",
+					"capacity_GiB": 30,
+					"count_of_this_type": 1
+				},
+				{
+					"purpose": [ "Hold the cache" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 1900,
+					"interface": "NVMe",
+					"count_of_this_type": 2
+				}
+			]
+		},
+		{
+			"node_type_name": "metadata -- AWS m6i.large",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "Intel(R) Xeon(R) Platinum 8375C CPU @ 2.90GHz",
+				"socket_count": 1,
+				"cores_per_socket": 1,
+				"threads_per_socket": 2,
+				"base_frequency": 2.90
+			},
+			"DRAM": {
+				"capacity_GiB": 8,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "network",
+					"bitrate": "up to 12.5gbps",
+					"count_of_this_type": 1,
+					"protocols": []
+				}
+			]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "AWS - m6in.16xlarge for benchmark",
+			"node_type_name": "client",
+			"benchmark_instances": [
+				{
+					"mapping_type": "container",
+					"cpu_cores": 64,
+					"DRAM_GiB": "256   we used cgroup to limit the hostnode memory to be 32GB"
+				}
+			]
+		}
+	],
+	"storage_system": {
+		"vendor_name": "Juicedata",
+		"solution_name": "JuiceFS Cloud with Distributed cache",
+		"model_name": "JuiceFS Enterprise",
+		"version": "v5.1",
+		"software_defined": "yes",
+		"hyperconverged": "no",
+		"solution_type": "Proprietary - JuiceFS",
+		"client_mount_options": [],
+		"solution_config_options": [],
+		"usable_capacity_GiB": "Inf",
+		"raw_capacity_GiB": "Inf",
+		"software_components": [
+			{
+				"component_name": "Object storage",
+				"description": "stores data, we used S3"
+			},
+			{
+				"component_name": "Distributed cache",
+				"description": "caches all the data in the distributed cache cluster",
+				"runnable_node_type_name": [ "distributed cache" ],
+				"connecting_components": [ "client", "metadata", "s3" ]
+			},
+			{
+				"component_name": "Metadata engine",
+				"description": "a high availability service built on top of Raft protocol, where all metadata operations are appended as Raft logs",
+				"runnable_node_type_name": [ "metadata" ],
+				"connecting_components": [ "client", "Distributed cache" ]
+			}
+		]
+	}
+}

@@ -1,0 +1,7 @@
+- workload=cosmoflow_a100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_files_train=971819
+- ++workload.dataset.data_folder=/mnt/mlperf_storage/cosmoflow_data
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

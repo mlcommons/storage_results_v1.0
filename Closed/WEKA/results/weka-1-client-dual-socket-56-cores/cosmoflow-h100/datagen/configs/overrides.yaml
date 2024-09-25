@@ -1,0 +1,8 @@
+- workload=cosmoflow_h100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_files_train=3887279
+- ++workload.dataset.num_subfolders_train=987
+- ++workload.dataset.data_folder=/mnt/weka/storage/cosmoflow_data_h100
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

@@ -1,0 +1,7 @@
+- workload=resnet50_a100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_files_train=12629
+- ++workload.dataset.data_folder=/9400nvme/resnet50
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

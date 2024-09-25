@@ -1,0 +1,33 @@
+workload:
+  model: resnet50
+  framework: tensorflow
+  workflow:
+    generate_data: false
+    train: true
+    profiling: false
+  dataset:
+    num_files_train: 138129
+    num_samples_per_file: 1251
+    record_length: 114660.07
+    record_length_resize: 150528
+    data_folder: /lustre/mlperf/client/datagen_resnet50_a100
+    format: tfrecord
+  train:
+    computation_time: 0.435
+    epochs: 5
+  reader:
+    data_loader: tensorflow
+    read_threads: 2
+    computation_threads: 2
+    batch_size: 400
+    dont_use_mmap: true
+    prefetch_size: 0
+  metric:
+    au: 0.9
+  storage:
+    storage_type: local_fs
+    storage_root: /lustre/mlperf/client
+  checkpoint:
+    checkpoint_folder: /lustre/mlperf/client/checkpoint_resnet50_a100
+  profiling:
+    profiler: none

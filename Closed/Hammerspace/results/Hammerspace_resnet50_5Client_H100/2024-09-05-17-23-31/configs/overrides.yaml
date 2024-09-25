@@ -1,0 +1,9 @@
+- workload=resnet50_h100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_subfolders_train=100
+- ++workload.dataset.data_folder=/mnt/mlperf/resnet50-h100
+- ++workload.checkpoint.checkpoint_folder=/mnt/mlperf/checkpoints
+- ++workload.dataset.num_files_train=47908
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

@@ -1,0 +1,295 @@
+{
+	"networks": [
+	    {
+		"network_name": "Client",
+		"network_type": "Ethernet",
+		"bitrate": 200,
+		"protocols": [ "NFSv4.2", "NFSv3" ]
+	    }
+	],
+	"nodes": [
+	    {
+		"node_type_name": "Client",
+		"config_options": [ ],
+		"CPU": {
+		    "vendor_and_model_name": "Intel Xeon 8375C (Ice Lake)",
+		    "socket_count": 2,
+		    "cores_per_socket": 32,
+		    "threads_per_socket": 64,
+		    "base_frequency": 2.90,
+		    "boost_frequency": 3.50
+		},
+		"DRAM": {
+		    "capacity_MiB": 256
+		},
+		"accelerators": [ { "vendor_and_model": "NVIDIA H100", "count_of_this_type": 2  } ],
+		"nic_ports": [
+		    {
+			"network_name": "Client",
+			"bitrate": 200,
+			"count_of_this_type": 1,
+			"protocols": [ "NFSv4.2", "NFSv3" ]
+		    }
+		],
+		"drives": [
+		    {
+			"purpose": [ "Hold the OS" ],
+			"drive_type": "SSD",
+			"capacity_GiB": 250,
+			"interface": "Other",
+			"count_of_this_type": 1,
+			"performance": {
+			    "read_bandwidth": {
+				"xfer_size_kilobytes": 1024,
+				"peak_bandwidth": 500
+			    },
+			    "write_bandwidth": {
+				"xfer_size_kilobytes": 1024,
+				"peak_bandwidth": 500
+			    },
+			    "read_iops": {
+				"xfer_size_kilobytes": 1024,
+				"peak_iops": 6000
+			    },
+			    "write_iops": {
+				"xfer_size_kilobytes": 1024,
+				"peak_iops": 6000
+			    }
+			}
+		    }
+		]
+	    },
+	    {
+		"node_type_name": "Anvil",
+		"config_options": [ ],
+		"CPU": {
+		    "vendor_and_model_name": "Intel Xeon Platinum 8252",
+		    "socket_count": 2,
+		    "cores_per_socket": 12,
+		    "threads_per_socket": 24,
+		    "base_frequency": 3.80,
+		    "boost_frequency": 4.50
+		},
+		"DRAM": {
+		    "capacity_MiB": 192
+		},
+		"accelerators": [ ],
+		"nic_ports": [
+		    {
+			"network_name": "Client",
+			"bitrate": 100,
+			"count_of_this_type": 1,
+			"protocols": [ "NFSv4.2", "NFSv3" ]
+		    }
+		],
+		"drives": [
+		    {
+			"purpose": [ "Hold the OS" ],
+			"drive_type": "SSD",
+			"capacity_GiB": 200,
+			"interface": "Other",
+			"count_of_this_type": 1,
+			"performance": {
+			    "read_bandwidth": {
+				"xfer_size_kilobytes": 1024,
+				"peak_bandwidth": 125
+			    },
+			    "write_bandwidth": {
+				"xfer_size_kilobytes": 1024,
+				"peak_bandwidth": 125
+			    },
+			    "read_iops": {
+				"xfer_size_kilobytes": 1024,
+				"peak_iops": 600
+			    },
+			    "write_iops": {
+				"xfer_size_kilobytes": 1024,
+				"peak_iops": 600
+			    }
+			}
+		    },
+		    {
+			"purpose": [ "Metadata" ],
+			"drive_type": "SSD",
+			"capacity_GiB": 1000,
+			"interface": "Other",
+			"count_of_this_type": 1,
+			"performance": {
+			    "read_bandwidth": {
+				"xfer_size_kilobytes": 1024,
+				"peak_bandwidth": 1000
+			    },
+			    "write_bandwidth": {
+				"xfer_size_kilobytes": 1024,
+				"peak_bandwidth": 1000
+			    },
+			    "read_iops": {
+				"xfer_size_kilobytes": 1024,
+				"peak_iops": 25000
+			    },
+			    "write_iops": {
+				"xfer_size_kilobytes": 1024,
+				"peak_iops": 25000
+			    }
+			}
+		    }
+		]
+	    },
+	    {
+		"node_type_name": "Storage",
+		"config_options": [ ],
+		"CPU": {
+		    "vendor_and_model_name": "AWS Graviton3 Processor",
+		    "socket_count": 1,
+		    "cores_per_socket": 32,
+		    "threads_per_socket": 64,
+		    "base_frequency": 2.60,
+		    "boost_frequency": 2.60
+		},
+		"DRAM": {
+		    "capacity_MiB": 128
+		},
+		"accelerators": [ ],
+		"nic_ports": [
+		    {
+			"network_name": "Client",
+			"bitrate": 200,
+			"count_of_this_type": 1,
+			"protocols": [ "NFSv4.2", "NFSv3" ]
+		    }
+		],
+		"drives": [
+		    {
+			"purpose": [ "Hold the OS" ],
+			"drive_type": "SSD",
+			"capacity_GiB": 125,
+			"interface": "Other",
+			"count_of_this_type": 1,
+			"performance": {
+			    "read_bandwidth": {
+				"xfer_size_kilobytes": 1024,
+				"peak_bandwidth": 250
+			    },
+			    "write_bandwidth": {
+				"xfer_size_kilobytes": 1024,
+				"peak_bandwidth": 250
+			    },
+			    "read_iops": {
+				"xfer_size_kilobytes": 1024,
+				"peak_iops": 3000
+			    },
+			    "write_iops": {
+				"xfer_size_kilobytes": 1024,
+				"peak_iops": 3000
+			    }
+			}
+		    },
+		    {
+			"purpose": [ "Holds MLPerf Data" ],
+			"drive_type": "SSD",
+			"capacity_GiB": 500,
+			"interface": "Other",
+			"count_of_this_type": 12,
+			"performance": {
+			    "read_bandwidth": {
+				"xfer_size_kilobytes": 1024,
+				"peak_bandwidth": 500
+			    },
+			    "write_bandwidth": {
+				"xfer_size_kilobytes": 1024,
+				"peak_bandwidth": 500
+			    },
+			    "read_iops": {
+				"xfer_size_kilobytes": 1024,
+				"peak_iops": 6000
+			    },
+			    "write_iops": {
+				"xfer_size_kilobytes": 1024,
+				"peak_iops": 6000
+			    }
+			}
+		    }
+		]
+	    }
+	],
+    "benchmark_hosts": [
+	{
+	    "node_name": "mlperf-anvil-1",
+	    "node_type_name": "Anvil",
+	    "benchmark_instances": [ { "mapping_type": "native" } ]
+	},
+	{
+	    "node_name": "mlperf-anvil-2",
+	    "node_type_name": "Anvil",
+	    "benchmark_instances": [ { "mapping_type": "native" } ]
+	},
+	{
+	    "node_name": "mlperf-client-1",
+	    "node_type_name": "Client",
+	    "benchmark_instances": [ { "mapping_type": "native" } ]
+	},
+	{
+	    "node_name": "storage-server-1",
+	    "node_type_name": "Storage",
+	    "benchmark_instances": [ { "mapping_type": "native" } ]
+	},
+	{
+	    "node_name": "storage-server-2",
+	    "node_type_name": "Storage",
+	    "benchmark_instances": [ { "mapping_type": "native" } ]
+	},
+	{
+	    "node_name": "storage-server-3",
+	    "node_type_name": "Storage",
+	    "benchmark_instances": [ { "mapping_type": "native" } ]
+	},
+	{
+	    "node_name": "storage-server-4",
+	    "node_type_name": "Storage",
+	    "benchmark_instances": [ { "mapping_type": "native" } ]
+	},
+	{
+	    "node_name": "storage-server-5",
+	    "node_type_name": "Storage",
+	    "benchmark_instances": [ { "mapping_type": "native" } ]
+	},
+	{
+	    "node_name": "storage-server-6",
+	    "node_type_name": "Storage",
+	    "benchmark_instances": [ { "mapping_type": "native" } ]
+	}
+    ],
+    "storage_system": {
+	"vendor_name": "Hammerspace Hyperscale NAS",
+	"solution_name": "Hammerspace",
+	"model_name": "Server",
+	"version": "5.1.6-166",
+	"software_defined": "yes",
+	"hyperconverged": "yes",
+	"solution_type": "NAS - Industry Standard NFSv4.2",
+	"client_mount_options": [ "-t nfs -o vers=4.2,port=20492,nconnect=16" ],
+	"solution_config_options": [ ],
+	"usable_capacity_GiB": 37339,
+	"raw_capacity_GiB": 38654,
+	"software_components": [
+	    {
+		"component_name": "Client",
+		"description": "Client footprint running NFSv4.2",
+		"runnable_node_type_name": [ "Client" ],
+		"connecting_components": [ "Anvil", "Storage" ]
+	    },
+	    {
+		"component_name": "Storage",
+		"description": "Storing the MLPerf data",
+		"runnable_node_type_name": [ "Storage" ],
+		"connecting_components": [ "Client", "Anvil" ]
+	    },
+	    {
+		"component_name": "MetadataStore",
+		"description": "Manage, control, and delegate files from storage to clients",
+		"runnable_node_type_name": [ "Anvil" ],
+		"connecting_components": [ "Client", "Storage" ]
+	    }
+	]
+    }
+}

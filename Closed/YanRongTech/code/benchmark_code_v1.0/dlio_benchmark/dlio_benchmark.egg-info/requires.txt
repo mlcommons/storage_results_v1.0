@@ -1,0 +1,15 @@
+dlio_profiler_py==0.0.3
+h5py>=3.7.0
+hydra-core>=1.2.0
+mpi4py>=3.1.4
+numpy>=1.23.5
+nvidia-dali-cuda110
+pandas>=1.5.1
+psutil
+tensorflow>=2.11
+torch>=2.2
+torchaudio
+torchvision
+
+[test]
+pytest

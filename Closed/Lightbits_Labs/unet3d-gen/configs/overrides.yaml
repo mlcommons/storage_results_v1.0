@@ -1,0 +1,7 @@
+- workload=unet3d_h100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_files_train=130000
+- ++workload.dataset.data_folder=/home/light/unet3d-data
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

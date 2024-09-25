@@ -1,0 +1,8 @@
+- workload=unet3d_h100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=18420
+- ++workload.dataset.data_folder=/mnt/mlperf_storage/unet3d_data
+- ++workload.reader.read_threads=8
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

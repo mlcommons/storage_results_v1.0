@@ -1,0 +1,10 @@
+- workload=resnet50_h100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.data_folder=/mnt/data
+- ++workload.dataset.num_files_train=316194
+- ++workload.checkpoint.checkpoint_folder=/mnt/data/check
+- ++workload.reader.read_threads=8
+- ++workload.dataset.num_subfolders_train=640
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

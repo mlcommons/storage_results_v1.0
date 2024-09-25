@@ -1,0 +1,11 @@
+- workload=cosmoflow_a100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=3887279
+- ++workload.reader.read_threads=8
+- ++workload.reader.prefetch_size=0
+- ++workload.reader.transfer_size=0
+- ++workload.dataset.num_subfolders_train=987
+- ++workload.dataset.data_folder=/mnt/weka/storage/cosmoflow_data_a100
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

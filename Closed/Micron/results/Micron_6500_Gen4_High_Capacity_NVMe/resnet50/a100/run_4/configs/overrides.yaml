@@ -1,0 +1,10 @@
+- workload=resnet50_a100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.reader.read_threads=1
+- ++workload.reader.prefetch_size=0
+- ++workload.dataset.data_folder=/6500-B7C4/resnet50
+- ++workload.dataset.num_files_train=38326
+- ++workload.reader.transfer_size=1048576
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

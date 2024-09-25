@@ -1,0 +1,210 @@
+{
+	"$id": "https://example.com/person.schema.json",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "YanRongTech_F9000X",
+	"type": "filesystem",
+	"properties": {
+		"networks": [
+			{
+				"network_name": "cient",
+				"network_type": "InfiniBand",
+				"bitrate": 400,
+				"protocols": [ "YRFS", "RDMA" ]
+			},
+			{
+				"network_name": "backend",
+				"network_type": "InfiniBand",
+				"bitrate": 400,
+				"protocols": [ "RDMA" ]
+			},
+		],
+
+		"nodes": [
+			{
+				"node_type_name": "client",
+				"config_options": [ "echo 3 > /proc/sys/vm/drop_caches" ],
+				"CPU": {
+					"vendor_and_model_name": "INTEL(R) XEON(R) PLATINUM 8558",
+					"socket_count": 2,
+					"cores_per_socket": 48,
+					"threads_per_socket": 96,
+					"base_frequency": 2.1,
+					"boost_frequency": 4 
+				},
+				"DRAM": {
+					"capacity_MiB": 257411,
+					"class": "DDR5",
+					"frequency": 5600
+				},
+				"accelerators": [ ],
+				"nic_ports": [
+					{
+						"network_name": "client",
+						"bitrate": 400,
+						"count_of_this_type": 2,
+						"protocols": [ "YRFS", "RDMA" ]
+					}
+				],
+				"drives": [
+					{
+						"purpose": "for the OS",
+						"drive_type": "SATA SSD",
+						"capacity_GiB": 446.6,
+						"count_of_this_type": 2
+					},
+				]
+			},
+			{
+				"node_type_name": "backend",
+				"config_options": [ "echo 3 > /proc/sys/vm/drop_caches" ],
+				"CPU": {
+					"vendor_and_model_name": "Intel(R) Xeon(R) Gold 6430",
+					"socket_count": 2,
+					"cores_per_socket": 32,
+					"threads_per_socket": 64,
+					"base_frequency": 2.1,
+					"boost_frequency": 3.4 
+				},
+				"DRAM": {
+					"capacity_MiB": 257434,
+					"class": "DDR5",
+					"frequency": 4800
+				},
+				"nic_ports": [
+					{
+						"network_name": "backend",
+						"bitrate": 400,
+						"count_of_this_type": 2,
+						"protocols": [ "YRFS", "RDMA" ]
+					}
+				],
+				"drives": [
+					{
+						"purpose": "for the OS",
+						"drive_type": "SATA SSD",
+						"capacity_GiB": 480,
+						"count_of_this_type": 2
+					},
+					{
+						"purpose": "metadata",
+						"drive_type": "NVMe SSD",
+						"capacity_GiB": 1490,
+						"count_of_this_type": 2,
+						"performance": {
+							"read_bandwidth": {
+								"xfer_size_kilobytes": 128,
+								"peak_bandwidth": 5.3
+							},
+							"write_bandwidth": {
+								"xfer_size_kilobytes": 128,
+								"peak_bandwidth": 1.9
+							},
+							"read_iops": {
+								"xfer_size_kilobytes": 4,
+								"peakiops": 700000
+							},
+							"write_iops": {
+								"xfer_size_kilobytes": 4,
+								"peakiops": 200000
+							},
+							"endurance": 3.0
+						}
+					},
+					{
+						"purpose": "data",
+						"drive_type": "NVMe SSD",
+						"capacity_GiB": 7000,
+						"count_of_this_type": 10,
+						"performance": {
+							"read_bandwidth": {
+								"xfer_size_kilobytes": 128,
+								"peak_bandwidth": 14
+							},
+							"write_bandwidth": {
+								"xfer_size_kilobytes": 128,
+								"peak_bandwidth": 10
+							},
+							"read_iops": {
+								"xfer_size_kilobytes": 4,
+								"peakiops": 2800000
+							},
+							"write_iops": {
+								"xfer_size_kilobytes": 4,
+								"peakiops": 410000
+							},
+							"endurance": 3.0
+						}
+					},
+				]
+			}
+		],
+
+		"benchmark_hosts": [
+			{
+				"node_name": "client1",
+				"node_type_name": "client",
+				"benchmark_instances": [
+					{
+						"mapping_type": "native",
+					}
+				]
+			},
+			{
+				"node_name": "client2",
+				"node_type_name": "client",
+				"benchmark_instances": [
+					{
+						"mapping_type": "native",
+					}
+				]
+			},
+			{
+				"node_name": "client3",
+				"node_type_name": "client",
+				"benchmark_instances": [
+					{
+						"mapping_type": "native",
+					}
+				]
+			}
+		],
+
+		"storage_system": {
+			"vendor_name": "YanRongTech",
+			"solution_name": "YRCloudFile",
+			"model_name": "F9000X",
+			"version": "6.10.5",
+			"software_defined": "yes",
+			"hyperconverged": "no",
+			"solution_type": "Proprietary",
+			"client_mount_options": [ "rw", "relatime", "cfg_file=/etc/yrfs/yrfs-client.conf", "mnt_src_path=/", "mnt_dest_path=/mnt/yrfs", "_netdev" ],
+			"usable_capacity_GiB": 102400,
+			"raw_capacity_GiB": 204800,
+			"software_components": [
+				{
+					"component_name": "yrfs-client",
+					"description": "kernel client running with private protocol for the YRFS distributed filesystem",
+					"runnable_node_type_name": [ "client" ],
+					"connecting_components": [ "yrfs-mgr", "yrfs-mds", "yrfs-oss" ]
+				},
+				{
+					"component_name": "yrfs-mgr",
+					"description": "cluster management node for the YRFS distributed filesystem",
+					"runnable_node_type_name": [ "backend" ],
+					"connecting_components": [ "yrfs-client", "yrfs-mds", "yrfs-oss" ]
+				},
+				{
+					"component_name": "yrfs-mds",
+					"description": "metadata node for the YRFS distributed filesystem",
+					"runnable_node_type_name": [ "backend" ],
+					"connecting_components": [ "yrfs-client", "yrfs-mgr", "yrfs-oss" ]
+				},
+				{
+					"component_name": "yrfs-oss",
+					"description": "data node for the YRFS distributed filesystem",
+					"runnable_node_type_name": [ "backend" ],
+					"connecting_components": [ "yrfs-client", "yrfs-mds", "yrfs-mgr" ]
+				}
+			]
+		}
+}

@@ -1,0 +1,83 @@
+{
+	"networks": [
+		{
+			"network_name": "client",
+			"network_type": "Infiniband",
+			"bitrate": 400,
+			"protocols": [ "WEKA", "DPDK" ]
+		},
+		{
+			"network_name": "backend",
+			"network_type": "InfiniBand",
+			"bitrate": 400,
+			"protocols": [ "DPDK" ]
+		}
+	],
+	"nodes": [
+		{
+			"node_type_name": "client",
+			"config_options": [ "sync; echo 3 > /proc/sys/vm/drop_caches" ],
+			"CPU": {
+				"vendor_and_model_name": "Intel Xeon",
+				"socket_count": 2,
+				"cores_per_socket": 56,
+				"threads_per_socket": 56,
+				"base_frequency": 2.4,
+				"boost_frequency": 3.8
+			},
+			"DRAM": {
+				"capacity_GB": 2048,
+				"class": "DDR5",
+				"frequency": 4800
+			},
+			"accelerators": [ 
+				{ "vendor_and_model": "NVIDIA H100", "count_of_this_type": "13-74" }, 
+				{ "vendor_and_model": "NVIDIA A100", "count_of_this_type": "24-90" } 
+			],
+			"nic_ports": [
+				{
+					"network_name": "client",
+					"bitrate": 400,
+					"count_of_this_type": 1,
+					"protocols": [ "WEKA" ]
+				}
+			],
+			"drives": [ ]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "h100a",
+			"node_type_name": "client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		}
+	],
+	"storage_system": {
+		"vendor_name": "WEKA IO",
+		"solution_name": "1 x DGX H100 with WEKApod Cluster",
+		"model_name": "WEKApod",
+		"version": "WekaIO v4.2.11",
+		"software_defined": "yes",
+		"hyperconverged": "yes",
+		"solution_type": "Proprietary",
+		"client_mount_options": [ "mount -t wekafs -o net=ibp170s0f0,net=ibp41s0f0,forcedirect,num_cores=10 100.127.0.1/default /mnt/weka" ],
+		"solution_config_options": [ "compression=false" ],
+		"usable_capacity_GiB": 215040,
+		"raw_capacity_GiB": 235520,
+		"software_components": [
+			{
+				"component_name": "WEKA POSIX CLIENT v 4.2.11",
+				"description": "WEKA CLIENT SOFTWARE TO MOUNT WEKA FS",
+				"runnable_node_type_name": [ "client" ],
+				"connecting_components": [ "WEKA FS" ]
+			},
+			{
+				"component_name": "WEKA FS",
+				"description": "WEKA File System",
+				"runnable_node_type_name": [ "Storage Servers" ],
+				"connecting_components": [ "client" ]
+			}
+		]
+	}
+}
+

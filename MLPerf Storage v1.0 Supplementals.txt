@@ -1,0 +1,223 @@
+MLPerf Storage v1.0 Results Discussion
+___
+
+The submitting organizations provided the following 300 word descriptions as a supplement to help the public understand their MLCommons® MLPerf® Storage v1.0 submissions and results. The statements do not reflect the opinions or views of MLCommons®. 
+
+---
+
+DDN
+DDN’s MLPerf Results Showcase Incredible Performance and Efficiency
+ 
+DDN, the AI Data Intelligence Company, is delighted to share our submission to the MLPerf® storage benchmark suite, which demonstrates the extreme performance and efficiency of DDN’s A3I (Accelerated Anyscale AI) systems in a multi-node configuration.
+ 
+DDN submitted one system in the CLOSED division, to evaluate performance in typical small-scale machine learning deployments. The submitted benchmark results measure the number of GPUs which can be saturated by a single DDN appliance during prescribed machine-learning tasks with an array of multiple GPU compute systems.
+ 
+For multi-node testing, a single DDN AI400X2T NVMe appliance achieved 100 GB/s reads for the Unet3D A100 and H100 test simulations, while saturating up to 72 GPUs for A100 and 36 GPUs for H100. This resulted in near-full saturation of the DDN AI400X2T appliance (110 GB/s max reads), showcasing the extremely high performance and efficiency of the appliance.
+
+A single DDN AI400X2T NVMe appliance served 864 simulated GPU clients across thirty-two compute nodes or 36 simulated GPU per physical drive, an excellent ratio of GPUs per drive on the Resnet50 task.
+
+A single DDN AI400X2T NVMe appliance served 150 simulated GPU clients across thirty compute nodes or 6 simulated GPU per physical drive, an excellent ratio of GPUs per drive on the CosmoFlow task.
+ 
+These results are significant, showcasing DDN’s extreme performance in terms of GB/s reads and simulated GPUs per physical drive. This translates to accelerated GPU performance with a small physical footprint, resulting in reduced power consumption for users. Additionally, DDN almost fully saturates the AI400X2T appliance on some tasks, meaning all the power of the appliance is fully utilized toward accelerating GPU/ML workloads – resulting in faster completion of computing tasks, which increases user productivity (due to reduced waiting times for tasks to finish).
+
+---
+
+Hammerspace
+
+Hammerspace Achieves Groundbreaking Results Demonstrating a Standards-Based Parallel File System in MLPerf 1.0 Benchmark
+
+Hammerspace is a Global Data Platform built for distributed file and object data. Hammerspace results in the MLPerf® v1.0 benchmark demonstrate, for the first time, that a standards-based parallel file system architecture can deliver the performance needed for AI and HPC workloads without requiring proprietary file system client software or exotic networking.  
+
+Using NFSv4.2 and pNFS capabilities that are built into every Linux OS, standard 200GbE networking, and Amazon EC2 m5zn Large Instances, Hammerspace ran both the UNet-3D and ResNet-50 tests, showing strong single and multi-client performance in both tests.  
+
+Hammerspace designed its test strategy to demonstrate the parallel file system performance and near linear scalability of its Global Data Platform using only standards-based infrastructure. 
+Hammerspace’s submission stands out by leveraging Ubuntu 22.04 Linux clients. The use of standard off-the-shelf Linux clients proves that the massive performance needed for GPU computing can be achieved without specialized or proprietary systems, making advanced machine learning and AI workloads more accessible and cost-effective for organizations across a range of industries.
+
+Another key differentiator in the Hammerspace submission is the use of standard Ethernet networking, as opposed to specialized networking alternatives. Hammerspace’s ability to deliver high-speed performance over a standard Ethernet network eliminates the need for a second network for high-performance data architectures thus reducing capital investment and operational costs while still maintaining top-tier performance.
+
+Additionally, Hammerspace showcased linear scalability, illustrating its ability to scale efficiently to the large scale of massive GPU compute environments.
+
+These results both provide architecture guidance for infrastructure teams looking to design HPC performance for their GPU computing architectures while leveraging Enterprise standard infrastructure and clients.
+
+---
+
+Hewlett Packard Enterprise
+
+Hewlett Packard Enterprise (HPE) is a founding member of MLCommons®, MLPerf® and an active member across multiple MLCommons working groups, including MLPerf Storage, Training, Inference, HPC, Network, AI Safety, and Chakra. We’re excited to support the official first round of MLPerf Storage v1.0 where our results feature excellent HPC performance of multiple HPE Cray storage products, servers, and network fabrics across a variety of models.
+
+The Cray ClusterStor E1000 Storage Systems are designed for data-intensive HPC workloads of today’s largest supercomputers and scales to tens of thousands of simultaneous clients. The new HPE Cray Storage Systems C500 bring high performance storage for entry or mid-ranged HPC clusters, combining open-source parallel file system and innovative multi-tiered disk architectures. HPE Cray storage systems are fully integrated in our supercomputing factories and connected to clients using high-speed HPE Slingshot, InfiniBand, and Ethernet options.
+
+Highlights this round include:
+
+High performance for both single and multi-client scenarios 
+
+Cray ClusterStor E1000 Storage Systems with HPE Slingshot fabric achieved our highest multi-client throughput for Unet3D delivering 293 samples/second across 5 clients
+
+Cray ClusterStor E1000 Storage Systems with InfiniBand fabric achieved our highest ResNet-50 performance of 55,934 samples/second for a single client
+
+InfiniBand HDR, Ethernet and HPE Slingshot fabrics represented
+
+HPE Cray and HPE ProLiant server clients tested
+
+As supercomputing continues to break barriers and expand what is possible for the future of innovation, HPE is proud to enable a better understanding of HPC performance for customers through our participation with MLCommons. HPE is committed to continuing to demonstrate innovative design in our HPC storage products through MLPerf on a range of scalable products.
+
+---
+
+Huawei
+
+We are delighted with the recent outcome of the MLPerf Storage v1.0 benchmark suite, where the OceanStor A800 achieved remarkable results. The Huawei OceanStor A800 is an all-flash AI storage system that delivers excellent performance, ultra-large capacity, and elastic scalability on brand-new hardware for applications including large AI models, intelligent computing centers, scientific research platforms, and autonomous driving platforms.
+
+For the latest v1.0 benchmark suite, we submitted a dual-node OceanStor A800 system for the 3D U-Net workload, which requires the highest bandwidth performance of all workloads in V1.0. The Huawei system recorded excellent throughput and supported training with 255 simulated NVIDIA H100 GPUs at a stable 679 GB/s bandwidth while maintaining over 90% accelerator utilization, demonstrating superb bandwidth while maintaining low latency. These results also highlight OceanStor A800's outstanding per-node and per-rack-unit performance. The MLPerf Storage v1.0 results demonstrate that the OceanStor A800 provides superb data services for AI training with high GPU/NPU utilization, owing to Huawei's years of expertise and research in data storage and AI. In addition, OceanStor A800 supports cluster networking and provides high-performance data services for large-scale training clusters.
+
+As AI becomes a tool to explore and unlock the value of large-scale data assets, there is a growing demand for sufficient storage, data mobility, and full utilization of high-quality data to help transition to a digital and intelligent future. Huawei Data Storage provides a unified AI data lake solution which uses OceanStor A800 to equip AI clusters with efficient management of EB-scale data. It builds a data foundation with high performance, large capacity, and data protection capabilities. In addition, OceanStor's intelligent tiering solution breaks down data silos to deliver efficient AI data supply, improve computing utilization in AI clusters, and accelerate large model training.
+
+---
+
+IEIT SYSTEMS
+
+IEIT SYSTEMS Excels in MLPerf Storage v1.0
+
+IEIT SYSTEMS Distributed Storage Platform performs excellently in the MLPerf® Storage v1.0 benchmark, achieving impressive results in the U-Net3d and Cosmoflow tests, showcasing its exceptional technological prowess. 
+
+IEIT SYSTEMS utilizes its self-developed ICFS distributed file system in this test, achieving a leap in performance. In the U-Net3D test, which represents the image segmentation field, the results are remarkable. First, IEIT SYSTEMS achieved 69GB/s throughput with 26 accelerators in single H100 client test, and 66 GB/s throughput with 48 accelerators in single A100 client test. Next, in multi-client tests, IEIT SYSTEMS achieved an aggregated cluster bandwidth of up to 362 GB/s with a total of 130 accelerators for 10 H100 clients, and a single storage server’s throughput hit an astonishing 120 GB/s. Similarly, in 12 A100 clients, a total of 264 accelerators are supported, with a single storage server’s throughput also reaching 120 GB/s?two results are close to our maximum per-node bandwidth (130GB/s). These results demonstrate that the IEIT SYSTEMS storage system can provide equally outstanding performance while supporting different accelerators. Additionally, in the CosmoFlow, IEIT SYSTEMS achieves remarkable results. throughput reaches 16 GB/s with 30 H100 accelerators in single client test.
+
+These results reflect the efforts made by IEIT SYSTEMS in AI storage and the remarkable achievements obtained. AI requires larger volumes of data, demonstrating a stronger demand for data-intensive storage. By adopting a strategy of hardware-software co-optimization, IEIT SYSTEMS significantly reduces the network burden of the distributed storage system, ensuring stable I/O latency in high-concurrency scenarios while providing excellent high bandwidth performance and linear scalability, precisely meeting the stringent requirements for efficient data movement in AI data pipeline,IEIT SYSTEMS continues to focus on the construction and optimization of modern AI infrastructure. We also continue to participate in the formulation of subsequent standards such as MLPerf Storage 2.0, working with the MLCommons® community to promote the development of the AI industry.
+
+---
+
+Juicedata
+
+JuiceFS is a high-performance cloud-native distributed file system, ideally suited for multi-cloud environments. As a user-space distributed file system, it delivered impressive results in MLPerf® Storage v1.0 Benchmark. 
+
+We conducted several tests across various workloads on a single host, and the results are as follows:
+
+Unet3D: A 3D image segmentation model performing consecutive dataset reads achieved 96.9% accelerator utilization on 2 H100 GPUs with a single host.
+
+ResNet-50: This well-known CNN model, primarily used in computer vision and performing random reads from datasets, achieved 93.1% accelerator utilization on 20 H100 GPUs with a single host.
+
+Cosmoflow: Analyzing N-body cosmology simulation data to predict physical parameters of the universe, this 3D convolutional neural network reached 70.1% accelerator utilization on 10 H100 GPUs with a single host.
+
+JuiceFS' architecture separates "data" and "metadata" storage. Data is stored in object storage, while metadata is stored in our in-house developed, high-performance metadata engine. Distributed caching has significantly enhanced I/O performance, enabling JuiceFS to satisfy the requirements of high-performance scenarios.
+
+JuiceFS uses Ethernet as the communication medium for its distributed caching, offering a bandwidth of approximately 12 GB/s. Although Ethernet's performance is lower compared to networks like InfiniBand, potentially limiting JuiceFS' performance, its ease of maintenance and cost-efficiency ensure that Ethernet remains the mainstream network choice for most enterprises.
+
+Compared to kernel-mode file systems, JuiceFS may exhibit slightly lower performance due to the increased overhead from system calls and data copying. However, it significantly enhances system security through its user-space operations.
+
+Notably, JuiceFS is one of the few solutions that utilize object storage for data storage. Furthermore, the Enterprise Edition of JuiceFS is competitively priced, providing a cost-effective AI storage solution to users. This is particularly advantageous in large-scale AI training scenarios where traditional all-flash and kernel-mode parallel file systems are associated with high costs.
+
+Overall, as a user-space distributed file system, JuiceFS offers AI enterprises a cost-effective and high-performance storage solution. Its cloud-native feature, combined with POSIX compatibility, integrates seamlessly into the modern AI ecosystem. 
+
+---
+
+Lightbits Labs
+
+Lightbits Software-Defined Storage Delivers High Performance and Efficiency in MLPerf Benchmarks
+
+Lightbits Labs is proud to be a supporting organization of MLCommons® and participate in the MLPerf® Storage V1.0 benchmark, demonstrating our disaggregated, software-defined block storage solution's ability to meet the demanding performance and scaling requirements of machine learning workloads.
+
+In this inaugural submission, Lightbits software delivered impressive results across a variety of ML models, including 3D U-Net, ResNet-50, and Cosmoflow. Our solution, featuring NVMe/TCP shared block storage, efficiently distributed data and workloads across multiple Lightbits storage servers, leveraging features like snapshotting and cloning.
+
+Using a minimal configuration of three commodity storage servers, we achieved outstanding performance for both 3D U-Net and ResNet-50. The storage servers were able to keep pace with the demanding I/O patterns of these models, even when paired with 6 client servers.
+
+For the Cosmoflow workload, which is particularly sensitive to client CPU performance, Lightbits Labs demonstrated its ability to deliver the low-latency response times required for these clients.
+
+Key takeaways from our MLPerf Storage submission include:
+
+High Performance: Capable of maintaining client accelerator utilization at a consistent 90% and above. In most cases, Lightbits was constantly delivering 30GB/s of storage activity concurrently with Lightbit’s minimum configuration of 3 storage servers.   
+
+Scalability: Lightbits can easily scale to meet growing performance requirements by adding additional storage nodes to the cluster. Customers can reduce TCO by starting with a minimum configuration of 3 storage servers and only buy/scale when the performance demands it.
+
+Efficiency: Our disaggregated, software-defined architecture runs on commodity hardware providing a cost-effective solution.
+Flexibility: Lightbits supports a wide range of ML workloads, ensuring that our customers can optimize their storage infrastructure for their specific needs.
+
+The benchmark results demonstrate Lightbits' high performance for ML workloads. With ongoing software updates and optimizations, Lightbits Labs expects continued improvements in performance and efficiency that empower organizations to accelerate their AI and ML initiatives. 
+
+---
+
+MangoBoost
+
+MangoBoost is shaping the next generation of power-efficient datacenters with cutting-edge connectivity technology, driving a sustainable future. Our flexible and composable patent-pending DPU technology allows for crafting bespoke DPU solutions. Each bespoke DPU packages an optimal set of hardware acceleration IPs to offload infrastructure data-processing tasks (a.k.a. ‘datacenter tax’) from host CPUs onto datacenter-deployable FPGA PCIe cards, for specific target market segment.
+The results we submitted to the v1.0 round in MLPerf® Storage showcase the power of MangoBoost DPUs for storage acceleration in AI workload. Additionally, to demonstrate the robustness of our solutions across a range of scenarios, we submitted comprehensive results for all MLPerf-Storage accelerator types and models.
+
+Our results were collected using an initiator (client) server running the MLPerf benchmark and a target storage server, communicating via 4x100Gbps Ethernet using the NVMe/TCP protocol. We submitted results for baseline systems without DPU (NVMe/TCP in software on standard NICs, with system level software optimizations), as well as with MangoBoost DPUs. We utilized two customized DPU solutions:
+
+“Mango StorageBoost™ - NVMe/TCP Initiator (NTI)” to accelerate the initiator server
+
+“Mango StorageBoost™ - NVMe/TCP Target (NTT)” to accelerate the target storage server
+
+These solutions contain hardware acceleration IPs (e.g., TCP/IP, NVMe) tailored to run the entire NVMe/TCP stack and TCP network datapath on FPGA hardware, while maintaining full compatibility with standard protocols (NVMe/TCP, TCP) through light-weight control software on embedded CPUs. This ensures maximum acceleration without compromising interoperability.
+Our MLPerf-Storage DPU-accelerated results achieved state-of-the-art NVMe/TCP performance. Compared to our non-DPU baseline results, the NTI and NTT DPU solutions boost performance by 2x for the top-of-the-line GPUs (e.g., H100), on the most I/O intensive workloads. In addition, we demonstrated that our NTI and NTT DPU solutions offer the benefits of standard TCP/IP network appliances (e.g., network switch, cable).
+
+---
+
+Nutanix
+
+Nutanix Unified Storage Excels in MLPerf Storage v1.0 Benchmark 
+
+Nutanix is thrilled to share outstanding results in the latest round of MLPerf® benchmarks, delivering over 2x performance gains for AI applications like image classification and 3D image segmentation. In the latest AI storage benchmark by MLCommons®, Nutanix Unified Storage excels in the ‘image classification’ and ‘image segmentation’ workload categories offering high performance, fast throughput, and linear scaling to meet the demands of modern data-driven applications. 
+
+Nutanix Unified Storage, a software defined platform for unstructured data, was able to demonstrate seamless scaling to provide faster, more reliable data access while optimizing GPU utilization and delivering high performance and efficiency for demanding AI workloads. For the image classification workload, a single node was able to power 33 AI accelerators and deliver over 5970 MB/s throughput. The same results were achieved at scale, showing remarkable linear performance with 32-node deployment driving 1056 AI accelerators and over 191043 MB/s of throughput. 
+
+AI is rapidly increasing the demand for sustained high-throughput and high-performance storage solutions due to the massive datasets and complex computations required for training and inference. Nutanix Unified Storage is committed to accelerating AI with consistent scalability and performance across on-prem data centers, edge end points, and the public cloud, thanks to our elegant scale-out architecture. Our distributed file system is designed to support a server-based scale-out model, delivering excellent performance using commodity servers—at a fraction of the cost, with effortless scalability and reduced power consumption. We are committed to partnering with MLCommons and appreciate their ongoing commitment to advancing benchmarking best practices in the rapidly evolving field of AI.
+
+---
+
+simplyblock
+
+Simplyblock achieves 99.4% GPU Utilization Rate for AI workloads on AWS
+
+Simplyblock, the pioneering cloud-native storage orchestration platform, is excited to announce its participation in the MLPerf® Storage v1.0 Benchmark, demonstrating its ability to serve AI workloads and utilize GPUs to their fullest potential. Simplyblock has proven its capacity to maximize GPU utilization while significantly reducing storage costs for Vector Databases, AI, and Machine Learning infrastructures.
+
+Simplyblock’s intelligent storage optimization platform orchestrates various AWS storage services, including Amazon EBS, Amazon S3, and local instance NVMe storage, into a unified, high-performance storage solution. Unlike traditional storage systems, simplyblock creates dynamic storage pools that can be divided into thinly provisioned logical volumes, offering unprecedented flexibility and efficiency for AI and Machine Learning infrastructures.
+
+For the benchmark, simplyblock operated a AWS storage cluster, consisting of 5 nodes running on i3en.6xlarge machines. The benchmark client, a single c6in.8xlarge, exercised 24 H100 accelerators reaching a combined throughput of over 37 GBit/s (~194 MB/s each) at an average GPU utilization rate of 99.4%.
+
+The rise of AI requires fast access to training data, often shared by many clients. Simplyblock provides high throughput and low latency block storage devices which can be attached to multiple clients simultaneously, enabling use cases to utilize standard NVMe-based block storage devices where slow NFS connections used to be the norm. 
+
+"As AI moves to the center of the spotlight, it's crucial that data and storage infrastructure solutions keep pace with the increasing demands of ML workloads," said Rob Pankow, CEO of simplyblock. "Our performance in the MLCommons benchmark demonstrates that simplyblock not only meets these demands but exceeds them, offering unparalleled efficiency and cost-effectiveness. We are happy to partner with MLCommons® to support efforts of developing an industry-standard benchmark.”
+
+---
+
+Volumez
+
+One of the most demanding and pivotal workloads in today's storage landscape is AI/ML training. Delivering high throughput to maximize GPU utilization significantly enhances model production economics and improves accuracy. In the MLPerf® Storage v1.0 benchmark, focused on the highly storage-intensive 3D-UNet model, Volumez’s Data Infrastructure as a Service (DIaaS) solution, formerly known as File Direct, showcased extraordinary linear scaling. It achieved an impressive average throughput of 1.079 TB/sec with 92.21% GPU utilization on AWS.
+
+Volumez DIaaS dynamically creates optimized, balanced systems in the public cloud, orchestrating compute, network, and storage resources from the cloud provider's inventory. For the benchmark, we composed 137 application nodes (c5n.18xlarge), each simulating 3 H100s, streaming training data from 128 media nodes (i3en.24xlarge) with 60TB each. No components are added to the 100% Linux data path or deployed as a traditional controller. Instead, the platform leverages unique intellectual property to build "awareness" of the capabilities and limitations of cloud IaaS resources. The Volumez “cloud-aware” control plane tailored this infrastructure to the 3D-UNet training workload specified in the benchmark to deliver both unprecedented speed and transformative economics.
+
+As an active member of the MLCommons® community, Volumez took an additional step by submitting a second benchmark run in the OPEN category. This submission focused on addressing real-world trade-offs faced by ML engineers and MLOps teams - optimizing throughput and utilization without sacrificing model accuracy. Specifically, we modified the benchmark’s weight exchange frequency, a common practice in high-scale environments. This adjustment reduces network overhead to achieve increased throughput and GPU utilization. We delivered an impressive 1.140 TB/sec throughput and 97.82% GPU utilization, a 5.43% improvement over our first submission.
+
+Looking ahead, the MLCommons storage working group is exploring the potential inclusion of variable weight synchronization configurations in the 2.0 benchmark, reflecting the practical trade-offs faced in production environments.
+
+---
+
+WEKA
+
+WEKA Powers High-Performance AI with Impressive MLPerf Benchmarks
+
+WEKA is proud to once again showcase its outstanding performance in the MLPerf® Storage Benchmarks. In machine learning, particularly deep learning and AI workloads, storage plays a crucial role in overall system performance. These workloads require handling massive datasets, with high data ingestion rates and frequent read/write operations during training, testing, and inference. The MLPerf Storage Benchmarks are designed to evaluate how well storage systems manage these intensive data demands.
+
+The WEKA® Data Platform's results in the CLOSED category for MLPerf Storage v1.0 benchmarks highlight its exceptional performance across various workloads. WEKA delivered impressive single-client results for Unet3D, a deep learning model used for 3D image segmentation tasks such as MRI data processing, and ResNet50, a convolutional neural network model widely applied in image classification, object detection, and facial recognition. Cosmoflow results and multi-client results were not submitted due to time constraints. 
+
+For the single client tests, WEKA achieved a result of 13 simulated H100 accelerators and a peak throughput of 34.57 GB/s for Unet3D and 74 simulated H100 accelerators with a peak throughput of 13.72 GB/s for ResNet50. No tuning or changes to the WEKA platform or clients were done between the two runs. These results highlight WEKA's ability to maximize throughput and accelerate training for AI and ML workloads and efficiently handle memory-intensive and high-volume image classification operations. WEKA additionally ran single client A100 tests, resulting in 24 accelerators and 31.12 GB/s for Unet3D, and 90 accelerators at 8.68 GB/s for ResNet50. Again, without any tuning changes. 
+
+These results reinforce WEKA’s ability to meet the demanding data needs of modern AI and ML workloads with incredible performance and efficiency in managing data access and processing, making it the optimal choice for supporting even the most demanding environments.
+
+---
+
+YanRong Tech 
+
+YanRong Delivers Exceptional Performance Results in MLPerf Storage v1.0 Benchmark
+
+YRCloudFile, developed by YanRong Tech, is a high-performance parallel file system tailored for AI and high-performance computing. In the latest MLPerf® Storage v1.0 benchmarks, YRCloudFile demonstrated exceptional performance in both single-client and multi-client environments.
+
+YanRong All-Flash Distributed Storage Appliance F8000X / F9000X Series are designed to meet the demands of large-scale GPU data processing. We conducted several tests using 3 F8000X nodes (PCIe 4.0 platform) and 3 F9000X nodes (PCIe 5.0 platform), running benchmarks on 3 host nodes respectively. The results of F9000X (equipped with 2 x 400Gb NDR and 10 x NVMe drives) are as follows: 
+
+CosmoFlow: YRCloudFile F9000X achieved 34 GB/s with 60 simulated H100 accelerators on a single host. In tests with 3 hosts, it reached an aggregated cluster bandwidth of up to 72 GB/s with 120 simulated H100 accelerators.
+
+ResNet50: YRCloudFile F9000X achieved 37 GB/s with 188 simulated H100 accelerators on a single host. In tests with 3 hosts, it reached an aggregated cluster bandwidth of up to 103 GB/s with 540 simulated H100 accelerators.
+
+UNet3D: YRCloudFile F9000X achieved 58 GB/s with 20 simulated H100 accelerators on a single host. In tests with 3 hosts, it reached an aggregated cluster bandwidth of up to 169 GB/s with 60 simulated H100 accelerators.
+
+Considering the bandwidth saturation ratio of the network cards, YRCloudFile utilizes the network cards and flash drives effectively, ensuring excellent performance for workloads. Additionally, based on the results from YanRong, increasing the number of client nodes shows a strong linear performance increase, demonstrating the cluster's robust high concurrency capabilities.
+
+YRCloudFile features a fully distributed data and metadata architecture. Additionally, our Multi-Channel technology aggregates the bandwidth of multiple InfiniBand and RoCE ports, delivering stable high bandwidth, high IOPS, and low latency performance, which is essential for data-intensive workloads like LLM training and GPU cloud infrastructure. We have deployed YRCloudFile with F8000X and F9000X appliances in numerous high-performance production environments. We extend our thanks to MLCommons® for the benchmark test and look forward to continuing our collaboration to enhance storage infrastructure for AI and data-intensive workloads.

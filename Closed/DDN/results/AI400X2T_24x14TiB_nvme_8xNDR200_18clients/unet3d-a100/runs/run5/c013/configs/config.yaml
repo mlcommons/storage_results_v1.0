@@ -1,0 +1,37 @@
+workload:
+  model: unet3d
+  framework: pytorch
+  workflow:
+    generate_data: false
+    train: true
+    checkpoint: true
+    profiling: false
+  dataset:
+    data_folder: /lustre/mlperf/client/datagen_unet3d_a100
+    format: npz
+    num_files_train: 252000
+    num_samples_per_file: 1
+    record_length: 146600628
+    record_length_stdev: 68341808
+    record_length_resize: 2097152
+  reader:
+    data_loader: pytorch
+    batch_size: 7
+    read_threads: 16
+    file_shuffle: seed
+    sample_shuffle: seed
+  train:
+    epochs: 5
+    computation_time: 0.636
+  checkpoint:
+    checkpoint_folder: /lustre/mlperf/client/checkpoint_unet3d_a100
+    checkpoint_after_epoch: 5
+    epochs_between_checkpoints: 2
+    model_size: 499153191
+  metric:
+    au: 0.9
+  storage:
+    storage_type: local_fs
+    storage_root: /lustre/mlperf/client
+  profiling:
+    profiler: none

@@ -1,0 +1,7 @@
+# ./benchmark.sh datasize --workload resnet50 --accelerator-type h100 --num-accelerators 220 --num-client-hosts 1 --client-host-memory-in-gb 251
+The benchmark will run for approx 9 minutes(best case)
+Minimum 35171 files are required which will consume 4698 GB of storage
+----------------------------------------------
+Set --param dataset.num_files_train=35171 with ./benchmark.sh datagen/run commands
+# ./benchmark.sh datagen --hosts 192.168.11.14:72 --workload resnet50 --accelerator-type h100 --num-parallel 72 --param dataset.num_files_train=35171 --param dataset.data_folder=/mnt/yrfs/mlperf/one_client/resnet50
+# for i in 0 1 2 3 4 5; ./benchmark.sh run --hosts 192.168.11.14:94 --workload resnet50 --accelerator-type h100 --num-accelerators 94 --results-dir /root/mlperf/results/resnet50/1_client_94_h100/run --param dataset.num_files_train=15027 --param dataset.data_folder=/mnt/yrfs/mlperf/one_client/resnet50/ --param reader.read_threads=2 --param checkpoint.checkpoint_folder=/mnt/yrfs/mlperf/one_client/resnet50/checkpoint; end > /dev/null 2>&1

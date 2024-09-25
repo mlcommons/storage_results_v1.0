@@ -1,0 +1,849 @@
+{
+  "networks": [
+	{
+	  "network_name": "client",
+	  "network_type": "Ethernet",
+	  "bitrate": 200,
+	  "protocols": [ "NFSv3", "NFSv4" ]
+	}
+  ],
+  "nodes": [
+	{
+	  "node_type_name": "File Server Node",
+	  "node_config_type": "AWS EC2 instace c6in.32xlarge",
+	  "config_options": [ ],
+	  "CPU": {
+		"vendor_and_model_name": "Intel Xeon 8375C (Ice Lake)",
+		"cores_per_socket": 128
+	  },
+	  "DRAM": {
+		"capacity_MiB": 262144
+	  },
+	  "accelerators": [ ],
+	  "nic_ports": [
+	    {
+		  "network_name": "client",
+		  "bitrate": 200,
+		  "count_of_this_type": 1,
+		  "protocols": [ "NFSv3", "NFSv4" ]
+	    }
+	  ],
+	  "drives": [
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS GP2 volumes, 100 IOPS",
+		  "capacity_GiB": 16,
+		  "count_of_this_type": 1
+		},
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS GP3 volumes, 3000 IOPS",
+		  "capacity_GiB": 4,
+		  "count_of_this_type": 2
+		},
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS GP3 volumes, 3000 IOPS",
+		  "capacity_GiB": 50,
+		  "count_of_this_type": 1
+		},
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS IO2 volumes, 14000 IOPS",
+		  "capacity_GiB": 900,
+		  "count_of_this_type": 4
+		},
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS IO2 volumes, 14000 IOPS",
+		  "capacity_GiB": 20,
+		  "count_of_this_type": 1
+		}
+	  ]
+	},
+	{
+	  "node_type_name": "Client Node",
+	  "node_config_type": "AWS EC2 instace c6in.16xlarge",
+	  "config_options": [ "NFS read_ahead : 15M" ],
+	  "CPU": {
+		"vendor_and_model_name": "Intel Xeon 8375C (Ice Lake)",
+		"cores_per_socket": 64
+	  },
+	  "DRAM": {
+		"capacity_MiB": 131072
+	  },
+	  "accelerators": [ ],
+	  "nic_ports": [
+	    {
+		  "network_name": "client",
+		  "bitrate": 100,
+		  "count_of_this_type": 1,
+		  "protocols": [ "NFSv3", "NFSv4" ]
+	    }
+	  ],
+	  "drives": [
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS GP3 volumes, 3000 IOPS",
+		  "capacity_GiB": 30,
+		  "count_of_this_type": 1
+		}
+	  ]
+	}
+  ],
+  "number_of_benchmark_hosts": 65,
+  "benchmark_hosts": [
+	{
+	  "node_name": "client-1",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-2",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-3",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-4",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-5",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-6",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-7",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-8",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-9",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-10",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-11",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-12",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-13",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-14",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-15",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-16",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-17",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-18",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-19",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-20",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-21",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-22",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-23",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-24",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-25",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-26",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-27",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-28",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-29",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-30",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-31",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-32",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-33",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-34",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-35",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-36",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-37",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-38",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-39",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-40",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-41",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-42",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-43",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-44",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-45",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-46",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-47",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-48",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-49",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-50",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-51",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-52",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-53",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-54",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-55",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-56",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-57",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-58",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-59",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-60",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-61",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-62",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-63",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-64",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-65",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 64,
+		  "DRAM_MiB": 131072
+		}
+	  ]
+	}
+  ],
+  "storage_system": {
+    "vendor_name": "Nutanix",
+    "solution_name": "Nutanix Files",
+    "model_name": "Nutanix Files in AWS",
+	"version": "5.1",
+    "software_defined": "yes",
+    "hyperconverged": "no",
+    "solution_type": "NAS - NFS",
+	"client_mount_options": [ "nconnect=8", "vers=4.0" ],
+	"solution_config_options": [
+	  "number of nodes : 32",
+	  "node_type_name : File Server Node",
+	  "cpu_core_count_per_node : 128",
+	  "memory_capacity_gigabytes_per_node : 256",
+	  "network_bandwidth_gbps_per_node : 200",
+	  "number_of_nw_queues : 32",
+	  "directory_distribution_logic : Round Robin",
+	  "share_workload_type : Sequential",
+	  "max_OIO_per_disk : 64"
+	],
+    "usable_capacity_GiB": 204800,
+    "raw_capacity_GiB": 204800,
+	"software_components": [
+	  {
+		"component_name": "Protocol Server",
+		"description": "NFS and SMB server",
+		"runnable_node_type_name": [ "File Server Node" ],
+		"connecting_components": [ "File System" ]
+	  },
+	  {
+		"component_name": "File System",
+		"description": "Nutanix Files Distributed File System",
+		"runnable_node_type_name": [ "File Server Node" ],
+		"connecting_components": [ "Protocol Server", "Storage" ]
+	  }
+	]
+  }
+}

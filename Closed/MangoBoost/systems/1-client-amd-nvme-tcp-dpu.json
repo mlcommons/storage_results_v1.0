@@ -1,0 +1,144 @@
+{
+  "networks": [
+    {
+      "network_name": "Client",
+      "network_type": "Ethernet",
+      "bitrate": 100,
+      "protocols": [
+        "NVMe/TCP"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "node_type_name": "Client",
+      "node_model_name": "SYS-421GE-TNRT3",
+      "node_vendor_name": "Supermicro",
+      "config_options": [
+        "echo 3 > /proc/sys/vm/pagecache"
+      ],
+      "CPU": {
+        "vendor_and_model_name": "Intel(R) Xeon(R) Gold 6438N",
+        "socket_count": 2,
+        "cores_per_socket": 32,
+        "threads_per_socket": 64,
+        "base_frequency": 2.0,
+        "boost_frequency": 3.6
+      },
+      "DRAM": {
+        "capacity_MiB": 488281,
+        "class": "DDR5",
+        "frequency": 4800
+      },
+      "accelerators": [],
+      "nic_ports": [
+        {
+          "network_name": "Client",
+          "bitrate": 100,
+          "count_of_this_type": 4,
+          "protocols": [
+            "NVMe/TCP"
+          ]
+        }
+      ],
+      "drives": [
+        {
+          "purpose": [
+            "OS"
+          ],
+          "drive_type": "SSD",
+          "capacity_GiB": 447.13,
+          "interface": "SATA",
+          "count_of_this_type": 1
+        }
+      ]
+    },
+    {
+      "node_type_name": "Storage Server",
+      "node_model_name": "Storage A+ Server ASG-1115S-NE316R",
+      "node_vendor_name": "Supermicro",
+      "config_options": [],
+      "CPU": {
+        "vendor_and_model_name": "AMD EPYC 9454P 48-Core Processor",
+        "socket_count": 1,
+        "cores_per_socket": 48,
+        "threads_per_socket": 48,
+        "base_frequency": 2.75,
+        "boost_frequency": 3.65
+      },
+      "DRAM": {
+        "capacity_MiB": 488281,
+        "class": "DDR5",
+        "frequency": 4800
+      },
+      "accelerators": [],
+      "nic_ports": [
+        {
+          "network_name": "Client",
+          "bitrate": 100,
+          "count_of_this_type": 4,
+          "protocols": [
+            "NVMe/TCP"
+          ]
+        }
+      ],
+      "drives": [
+        {
+          "purpose": [
+            "OS"
+          ],
+          "drive_type": "SSD",
+          "capacity_GiB": 894.25,
+          "interface": "NVMe",
+          "count_of_this_type": 2
+        },
+        {
+          "purpose": [
+            "Data"
+          ],
+          "drive_type": "SSD",
+          "capacity_GiB": 14305.11,
+          "interface": "NVMe",
+          "count_of_this_type": 16
+        }
+      ]
+    }
+  ],
+  "benchmark_hosts": [
+    {
+      "node_name": "eval2",
+      "node_type_name": "Client",
+      "benchmark_instances": [
+        {
+          "mapping_type": "native",
+          "cpu_cores": 64,
+          "DRAM_MiB": 488281
+        }
+      ]
+    }
+  ],
+  "storage_system": {
+    "vendor_name": "Supermicro",
+    "solution_name": "MangoBoost NVMe/TCP Target Offloading",
+    "model_name": "Storage A+ Server ASG-1115S-NE316R",
+    "version": "0123456789",
+    "software_defined": "no",
+    "hyperconverged": "no",
+    "solution_type": "Remote DAS - NVMe/TCP",
+    "client_mount_options": [],
+    "usable_capacity_GiB": 228882,
+    "raw_capacity_GiB": 228882,
+    "software_components": [
+      {
+        "component_name": "MangoBoost SPDK driver",
+        "description": "Provide MangoBoost DPU device driver and NVMe/TCP target.",
+        "runnable_node_type_name": [
+          "Storage Server"
+        ],
+        "connecting_components": [
+          "Client"
+        ]
+      }
+    ]
+  }
+}

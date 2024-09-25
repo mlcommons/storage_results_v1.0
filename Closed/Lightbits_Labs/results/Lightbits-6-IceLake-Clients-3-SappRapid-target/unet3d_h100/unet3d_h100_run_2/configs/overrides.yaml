@@ -1,0 +1,10 @@
+- workload=unet3d_h100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=112500
+- ++workload.dataset.data_folder=/home/light/unet3d-data
+- ++workload.reader.read_threads=32
+- ++workload.reader.prefetch_size=0
+- ++workload.checkpoint.checkpoint_folder=/home/light/unet3d-data/checkpoints
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

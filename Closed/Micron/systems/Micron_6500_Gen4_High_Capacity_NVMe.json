@@ -1,0 +1,61 @@
+{
+	"nodes": [
+		{
+			"node_type_name": "Localhost",
+			"config_options": [ "mem=256G" ],
+			"CPU": {
+				"vendor_and_model_name": "AMD EPYC 7713",
+				"socket_count": 2,
+				"cores_per_socket": 64,
+				"threads_per_socket": 128,
+				"base_frequency": "2 GHz",
+				"boost_frequency": "3.67 GHz"
+			},
+			"DRAM": {
+				"capacity_MiB": 1024,
+				"class": "DDR4",
+				"frequency": 3200,
+
+			},
+			"accelerators": [
+				{ "vendor_and_model": "NVIDIA H100", "count_of_this_type": "1-37" },
+				{ "vendor_and_model": "NVIDIA A100", "count_of_this_type": "3-72" }
+			],
+			"drives": [
+				{
+					"purpose": [ "Device Under Test" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 30720,
+					"interface": "NVMe",
+					"count_of_this_type": 1,
+					"performance": {
+						"read_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth": "6800 MB/s"
+						},
+						"write_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth": "5000 MB/s"
+						},
+						"read_iops": {
+							"xfer_size_kilobytes": 4,
+							"peak_iops": 1000000
+						},
+						"write_iops": {
+							"xfer_size_kilobytes": 4,
+							"peak_iops": 200000
+						},
+						"endurance": [ "1.0 Sequential DWPD", "0.3 Random DWPD" ]
+					}
+				}
+			]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "localhost",
+			"node_type_name": "localhost",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		}
+	]
+}

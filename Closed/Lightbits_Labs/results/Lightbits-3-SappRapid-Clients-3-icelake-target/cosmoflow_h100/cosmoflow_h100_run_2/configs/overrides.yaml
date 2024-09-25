@@ -1,0 +1,10 @@
+- workload=cosmoflow_h100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=2915459
+- ++workload.dataset.data_folder=/home/light/cosmoflow-data
+- ++workload.reader.prefetch_size=0
+- ++workload.reader.read_threads=1
+- ++workload.reader.computation_threads=1
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

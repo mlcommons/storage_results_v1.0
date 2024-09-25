@@ -1,0 +1,10 @@
+(venv) noctarius@mb-tiger ~/b/s/C/code ((v1.0)) [0|1]> ./benchmark.sh reportgen --results-dir ../results/resnet-h100/runs
+2024-09-03 08:36:27 ------------------------------
+2024-09-03 08:36:27 Model: resnet50
+2024-09-03 08:36:27 Accelerator: h100
+2024-09-03 08:36:27 Number of benchmark runs: 5
+2024-09-03 08:36:27 Overall number of accelerators: 1
+2024-09-03 08:36:27 Overall Training Throughput (samples/second): 1778.69 (0.164602360097374)
+2024-09-03 08:36:27 Overall Training Throughput (MB/second): 194.50 (0.0179989987668249)
+2024-09-03 08:36:27 ------------------------------
+2024-09-03 08:36:27 Final report generated: mlperf_storage_report.json

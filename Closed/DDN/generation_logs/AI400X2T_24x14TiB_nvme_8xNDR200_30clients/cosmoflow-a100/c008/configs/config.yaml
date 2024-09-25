@@ -1,0 +1,31 @@
+workload:
+  model: cosmoflow
+  framework: tensorflow
+  workflow:
+    generate_data: true
+    train: false
+    profiling: false
+  dataset:
+    data_folder: /lustre/mlperf/client/datagen_cosmoflow_a100
+    num_files_train: 5580372
+    num_samples_per_file: 1
+    record_length: 2828486
+    record_length_stdev: 71311
+    format: tfrecord
+  reader:
+    data_loader: tensorflow
+    read_threads: 4
+    batch_size: 1
+    file_shuffle: seed
+    sample_shuffle: seed
+    shuffle_size: 2
+  train:
+    epochs: 5
+    computation_time: 0.00551
+  metric:
+    au: 0.7
+  storage:
+    storage_type: local_fs
+    storage_root: /lustre/mlperf/client
+  profiling:
+    profiler: none

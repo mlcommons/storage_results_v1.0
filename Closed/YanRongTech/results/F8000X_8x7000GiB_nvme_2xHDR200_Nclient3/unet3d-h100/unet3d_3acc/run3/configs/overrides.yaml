@@ -1,0 +1,9 @@
+- workload=unet3d_h100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=27575
+- ++workload.dataset.data_folder=/mnt/yrfs/mlperf/three_clients/unet3d/
+- ++workload.reader.read_threads=32
+- ++workload.reader.transfer_size=4194304
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

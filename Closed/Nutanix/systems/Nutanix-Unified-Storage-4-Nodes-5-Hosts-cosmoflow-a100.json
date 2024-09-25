@@ -1,0 +1,189 @@
+{
+  "networks": [
+	{
+	  "network_name": "client",
+	  "network_type": "Ethernet",
+	  "bitrate": 200,
+	  "protocols": [ "NFSv3", "NFSv4" ]
+	}
+  ],
+  "nodes": [
+	{
+	  "node_type_name": "File Server Node",
+	  "node_config_type": "AWS EC2 instance x2idn.32xlarge",
+	  "config_options": [ ],
+	  "CPU": {
+		"vendor_and_model_name": "Intel Xeon Scalable (Icelake)",
+		"cores_per_socket": 128
+	  },
+	  "DRAM": {
+		"capacity_MiB": 2097152
+	  },
+	  "accelerators": [ ],
+	  "nic_ports": [
+	    {
+		  "network_name": "client",
+		  "bitrate": 100,
+		  "count_of_this_type": 1,
+		  "protocols": [ "NFSv3", "NFSv4" ]
+	    }
+	  ],
+	  "drives": [
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS GP2 volumes, 100 IOPS",
+		  "capacity_GiB": 16,
+		  "count_of_this_type": 1
+		},
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS GP3 volumes, 3000 IOPS",
+		  "capacity_GiB": 4,
+		  "count_of_this_type": 2
+		},
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS GP3 volumes, 3000 IOPS",
+		  "capacity_GiB": 50,
+		  "count_of_this_type": 1
+		},
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS IO2 volumes, 5000 IOPS",
+		  "capacity_GiB": 900,
+		  "count_of_this_type": 4
+		},
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS IO2 volumes, 5000 IOPS",
+		  "capacity_GiB": 20,
+		  "count_of_this_type": 1
+		}
+	  ]
+	},
+	{
+	  "node_type_name": "Client Node",
+	  "node_config_type": "AWS EC2 instance r6in.8xlarge",
+	  "config_options": [ ],
+	  "CPU": {
+		"vendor_and_model_name": "Intel Xeon 8375C (Ice Lake)",
+		"cores_per_socket": 32
+	  },
+	  "DRAM": {
+		"capacity_MiB": 262144
+	  },
+	  "accelerators": [ ],
+	  "nic_ports": [
+	    {
+		  "network_name": "client",
+		  "bitrate": 50,
+		  "count_of_this_type": 1,
+		  "protocols": [ "NFSv3", "NFSv4" ]
+	    }
+	  ],
+	  "drives": [
+		{
+		  "drive_type": "Other",
+		  "drive_details": "Amazon AWS EBS GP3 volumes, 3000 IOPS",
+		  "capacity_GiB": 30,
+		  "count_of_this_type": 1
+		}
+	  ]
+	}
+  ],
+  "number_of_benchmark_hosts": 5,
+  "benchmark_hosts": [
+	{
+	  "node_name": "client-1",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 32,
+		  "DRAM_MiB": 262144
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-2",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 32,
+		  "DRAM_MiB": 262144
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-3",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 32,
+		  "DRAM_MiB": 262144
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-4",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 32,
+		  "DRAM_MiB": 262144 
+		}
+	  ]
+	},
+	{
+	  "node_name": "client-5",
+	  "node_type_name": "Client Node",
+	  "benchmark_instances": [
+		{
+		  "mapping_type": "native",
+		  "cpu_cores": 32,
+		  "DRAM_MiB": 262144
+		}
+	  ]
+	}
+  ],
+  "storage_system": {
+    "vendor_name": "Nutanix",
+    "solution_name": "Nutanix Files",
+    "model_name": "Nutanix Files in AWS",
+	"version": "5.1",
+    "software_defined": "yes",
+    "hyperconverged": "no",
+    "solution_type": "NAS - NFS",
+	"client_mount_options": [ "nconnect=4", "vers=4.0" ],
+	"solution_config_options": [
+	  "number of nodes : 4",
+	  "node_type_name : File Server Node",
+	  "cpu_core_count_per_node : 128",
+	  "memory_capacity_gigabytes_per_node : 2048",
+	  "network_bandwidth_gbps_per_node : 100",
+	  "number_of_nw_queues : 16",
+	  "directory_distribution_logic : Round Robin",
+	  "share_workload_type : Sequential",
+	  "max_OIO_per_disk : 64"
+	],
+    "usable_capacity_GiB": 204800,
+    "raw_capacity_GiB": 204800,
+	"software_components": [
+	  {
+		"component_name": "Protocol Server",
+		"description": "NFS and SMB server",
+		"runnable_node_type_name": [ "File Server Node" ],
+		"connecting_components": [ "File System" ]
+	  },
+	  {
+		"component_name": "File System",
+		"description": "Nutanix Files Distributed File System",
+		"runnable_node_type_name": [ "File Server Node" ],
+		"connecting_components": [ "Protocol Server", "Storage" ]
+	  }
+	]
+  }
+}

@@ -1,0 +1,60 @@
+{
+	"nodes": [
+		{
+			"node_type_name": "Localhost",
+			"config_options": [ "mem=256G" ],
+			"CPU": {
+				"vendor_and_model_name": "AMD EPYC 74F3",
+				"socket_count": 2,
+				"cores_per_socket": 24,
+				"threads_per_socket": 48,
+				"base_frequency": "3.2 GHz",
+				"boost_frequency": "4 GHz"
+			},
+			"DRAM": {
+				"capacity_MiB": 256,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"accelerators": [
+				{ "vendor_and_model": "NVIDIA H100", "count_of_this_type": "2-38" },
+				{ "vendor_and_model": "NVIDIA A100", "count_of_this_type": "4-18" }
+			],
+			"drives": [
+				{
+					"purpose": [ "Device Under Test" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 7680,
+					"interface": "NVMe",
+					"count_of_this_type": 1,
+					"performance": {
+						"read_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth": "7000 MB/s"
+						},
+						"write_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth": "7000 MB/s"
+						},
+						"read_iops": {
+							"xfer_size_kilobytes": 4,
+							"peak_iops": 1600000
+						},
+						"write_iops": {
+							"xfer_size_kilobytes": 4,
+							"peak_iops": 600000
+						},
+						"endurance": [ "14,016 TBW" ]
+					}
+				}
+			]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "localhost",
+			"node_type_name": "localhost",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		}
+	]
+}

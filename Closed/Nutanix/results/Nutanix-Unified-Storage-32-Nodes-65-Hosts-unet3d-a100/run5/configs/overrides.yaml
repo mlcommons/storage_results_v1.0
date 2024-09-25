@@ -1,0 +1,10 @@
+- workload=unet3d_a100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.data_folder=/mnt/data
+- ++workload.dataset.num_files_train=682500
+- ++workload.checkpoint.checkpoint_folder=/mnt/data/check
+- ++workload.reader.read_threads=20
+- ++workload.dataset.num_subfolders_train=640
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

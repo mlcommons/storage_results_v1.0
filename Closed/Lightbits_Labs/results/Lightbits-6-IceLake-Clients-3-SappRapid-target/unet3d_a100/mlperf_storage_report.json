@@ -1,0 +1,61 @@
+{
+    "overall": {
+        "model": "unet3d",
+        "accelerator": "a100",
+        "num_benchmark_runs": 5,
+        "train_num_accelerators": "24",
+        "num_files_train": 112500,
+        "num_samples_per_file": 1,
+        "train_throughput_mean_samples_per_second": 224.82375098413496,
+        "train_throughput_stdev_samples_per_second": 0.4592809746756714,
+        "train_throughput_mean_MB_per_second": 31432.440837468912,
+        "train_throughput_stdev_MB_per_second": 64.211730304627
+    },
+    "runs": {
+        "unet3d_a100_run_4": {
+            "train_throughput_samples_per_second": 225.06689611800851,
+            "train_throughput_MB_per_second": 31466.434777174767,
+            "train_num_accelerators": "24",
+            "model": "unet3d",
+            "accelerator": "a100",
+            "num_files_train": 112500,
+            "num_samples_per_file": 1
+        },
+        "unet3d_a100_run_1": {
+            "train_throughput_samples_per_second": 224.95056684819616,
+            "train_throughput_MB_per_second": 31450.170868779696,
+            "train_num_accelerators": "24",
+            "model": "unet3d",
+            "accelerator": "a100",
+            "num_files_train": 112500,
+            "num_samples_per_file": 1
+        },
+        "unet3d_a100_run_5": {
+            "train_throughput_samples_per_second": 223.97762618298262,
+            "train_throughput_MB_per_second": 31314.144760488984,
+            "train_num_accelerators": "24",
+            "model": "unet3d",
+            "accelerator": "a100",
+            "num_files_train": 112500,
+            "num_samples_per_file": 1
+        },
+        "unet3d_a100_run_2": {
+            "train_throughput_samples_per_second": 225.3358767564276,
+            "train_throughput_MB_per_second": 31504.040759489908,
+            "train_num_accelerators": "24",
+            "model": "unet3d",
+            "accelerator": "a100",
+            "num_files_train": 112500,
+            "num_samples_per_file": 1
+        },
+        "unet3d_a100_run_3": {
+            "train_throughput_samples_per_second": 224.7877890150598,
+            "train_throughput_MB_per_second": 31427.413021411197,
+            "train_num_accelerators": "24",
+            "model": "unet3d",
+            "accelerator": "a100",
+            "num_files_train": 112500,
+            "num_samples_per_file": 1
+        }
+    }
+}

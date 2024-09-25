@@ -1,0 +1,10 @@
+- workload=cosmoflow_a100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.data_folder=/mnt/data
+- ++workload.dataset.num_files_train=2429550
+- ++workload.checkpoint.checkpoint_folder=/mnt/data/check
+- ++workload.reader.read_threads=6
+- ++workload.dataset.num_subfolders_train=320
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

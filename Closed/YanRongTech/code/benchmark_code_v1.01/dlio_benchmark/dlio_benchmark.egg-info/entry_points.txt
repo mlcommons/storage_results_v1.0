@@ -1,0 +1,4 @@
+[console_scripts]
+dlio_benchmark = dlio_benchmark.main:main
+dlio_postprocessor = dlio_benchmark.postprocessor:main
+

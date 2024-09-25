@@ -1,0 +1,29 @@
+workload:
+  model: resnet50
+  framework: tensorflow
+  workflow:
+    generate_data: true
+    train: false
+    profiling: false
+  dataset:
+    num_files_train: 9581
+    num_samples_per_file: 1251
+    record_length: 114660.07
+    record_length_resize: 150528
+    data_folder: /mnt/mlperf/resnet50-h100
+    format: tfrecord
+    num_subfolders_train: 100
+  train:
+    computation_time: 0.224
+    epochs: 5
+  reader:
+    data_loader: tensorflow
+    read_threads: 8
+    computation_threads: 8
+    batch_size: 400
+  metric:
+    au: 0.9
+  checkpoint:
+    checkpoint_folder: /mnt/mlperf/checkpoints
+  profiling:
+    profiler: none

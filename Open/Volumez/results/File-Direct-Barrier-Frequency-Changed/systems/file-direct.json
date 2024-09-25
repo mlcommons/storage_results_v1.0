@@ -1,0 +1,111 @@
+{
+    "networks": [
+        {
+            "network_name": "Amazon Virtual Private Cloud",
+            "network_type": "Ethernet",
+            "protocols": [ "NVMe/tcp" ]
+        }
+    ],
+    "nodes": [
+        {
+            "node_type_name": "media",
+            "OS_version": "rhel9.4_5.14.0-427.20.1.el9_4_x86_64 + backport https://github.com/torvalds/linux/commit/fcf3f7e2fc8a53a6140beee46ec782a4c88e4744",
+            "node_count": 128,
+            "node_type" : "i3en.24xlarge",
+            "purpose" : "holds the data",
+            "config_options": [ "" ],
+            "CPU": {
+                "vendor_and_model_name": "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz",
+                "vcores": 96,
+                "socket_count": 2,
+                "cores_per_socket": 48,
+                "base_frequency": 2.5,
+                "boost_frequency": 3.1
+            },
+            "DRAM": {
+                "capacity_MiB": 768000
+            },
+            "nic_ports": [
+                {
+                    "network_name": "client",
+                    "network_type": "Ethernet",
+                    "bitrate": 100,
+                    "count_of_this_type": 1,
+                    "protocols": [ "NVMe/tcp" ]
+                }
+            ],
+            "drives": [
+				{
+                    "drive_type": "SSD",
+                    "model" : "Amazon EC2 NVMe Instance Storage",
+                    "vendor" : "Amazon.com, Inc.",
+                    "capacity_GiB": 7500,
+                    "interface": "NVMe",
+                    "count_of_this_type": 8
+				}
+			]
+        }
+    ],
+    "benchmark_hosts": [
+        {
+            "node_type_name": "application",
+            "OS_version": "rhel9.4_5.14.0-427.20.1.el9_4_x86_64 + backport https://github.com/torvalds/linux/commit/fcf3f7e2fc8a53a6140beee46ec782a4c88e4744",
+            "node_count": 137,
+            "node_type" : "c5n.18xlarge",
+            "config_options": [ "" ],
+            "CPU": {
+                "vendor_and_model_name": "Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz",
+                "vcores": "72",
+                "socket_count": 2,
+                "cores_per_socket": 36, 
+                "base_frequency": 3.0,
+                "boost_frequency": 3.5
+            },
+            "DRAM": {
+                "capacity_MiB": 192000
+            },
+            "nic_ports": [
+                {
+                    "network_name": "client",
+                    "network_type": "Ethernet",
+                    "bitrate": 100,
+                    "count_of_this_type": 1,
+                    "protocols": [ "NVMe/tcp" ]
+                }
+            ],
+            "benchmark_instances": [ { "mapping_type": "native" } ],
+            "accelerators": [
+                {
+                    "vendor_and_model": "NVIDIA H100",
+                    "count_of_this_type": 3
+                }
+            ]
+        }               
+    ],
+    "storage_system": {
+        "vendor_name": "Volumez",
+        "solution_name": "File Direct - Composable Data Infrastructure",
+        "version": "0.5",
+        "software_defined": "yes",
+        "hyperconverged": "no",
+        "solution_type": "Composable Data Infrastructure",
+        "client_mount_options": [ "ro","noatime","nouuid","norecovery","attr2","discard","inode64","logbufs=8","logbsize=128k","sunit=256","swidth=512","noquota" ],
+        "solution_config_options": [ "resiliency=RAID1","Encryption=disabled","Throttling=disabled","Compression=disabled" ],
+        "usable_capacity_GiB": 3840000,
+        "raw_capacity_GiB": 7680000,
+        "software_components": [
+            {
+                "component_name": "SIO",
+                "description": "Volumez Saas Storage Orchestrator",
+                "runnable_node_type_name": [ "AWS SaaS" ],
+                "connecting_components": [ "Connector" ]
+            },
+            {
+                "component_name": "Connector",
+                "description": "Volumez Native connector",
+                "runnable_node_type_name": [ "media", "application" ],
+                "connecting_components": [ "SIO" ]
+            }
+        ]
+    }
+}

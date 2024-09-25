@@ -1,0 +1,7 @@
+- workload=resnet50_h100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_files_train=40927
+- ++workload.dataset.data_folder=/mnt/yrfs/mlperf/one_client/resnet50/
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

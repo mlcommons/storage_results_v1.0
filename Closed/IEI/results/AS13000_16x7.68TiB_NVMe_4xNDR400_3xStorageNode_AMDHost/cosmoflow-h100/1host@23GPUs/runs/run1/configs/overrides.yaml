@@ -1,0 +1,9 @@
+- workload=cosmoflow_h100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=364432
+- ++workload.dataset.data_folder=/mnt/ikcdir/cosmoflow-dataset-single-client
+- ++workload.reader.read_threads=1
+- ++workload.checkpoint.checkpoint_folder=/mnt/ikcdir/mlperf-ckpt/AS13000_16x7.68TiB_NVMe_4xNDR400_3Node_AMDHost/cosmoflow-h100/cosmoflow-single-client/runs/run1
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

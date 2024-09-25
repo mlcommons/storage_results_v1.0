@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#for r in 1 2 3 4 5; do cd /root/storage; export OMPI_ALLOW_RUN_AS_ROOT=1; export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1; HYDRA_FULL_ERROR=1 ./benchmark.sh run --hosts 127.0.0.1 --num-accelerators 422 --accelerator-type h100 --workload resnet50 --category closed --results-dir /root/results/resnet50/h100/run_${r} --param reader.read_threads=12  --param reader.prefetch_size=0 --param dataset.data_folder=/6500-B7C4/resnet50 --param dataset.num_files_train=38326 --param reader.transfer_size=1048576; done
+
+#for r in 1 2 3 4 5; do cd /root/storage; export OMPI_ALLOW_RUN_AS_ROOT=1; export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1; HYDRA_FULL_ERROR=1 ./benchmark.sh run --hosts 127.0.0.1 --num-accelerators 9 --accelerator-type h100 --workload cosmoflow --category closed --results-dir /root/results/cosmoflow/h100/run_${r} --param reader.read_threads=4  --param reader.prefetch_size=0 --param dataset.data_folder=/6500-B7C4/cosmoflow --param dataset.num_files_train=1943639 --param dataset.num_subfolders_train=1000 --param reader.transfer_size=1048576; done
+
+#for r in 1 2 3 4 5; do cd /root/storage; export OMPI_ALLOW_RUN_AS_ROOT=1; export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1; HYDRA_FULL_ERROR=1 ./benchmark.sh run --hosts 127.0.0.1 --num-accelerators 16 --accelerator-type a100 --workload cosmoflow --category closed --results-dir /root/results/cosmoflow/a100/run_${r} --param reader.read_threads=4  --param reader.prefetch_size=0 --param dataset.data_folder=/6500-B7C4/cosmoflow --param dataset.num_files_train=1943639 --param dataset.num_subfolders_train=1000 --param reader.transfer_size=1048576; done
+
+for r in 1 2 3 4 5; do cd /root/storage; export OMPI_ALLOW_RUN_AS_ROOT=1; export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1; HYDRA_FULL_ERROR=1 ./benchmark.sh run --hosts 127.0.0.1 --num-accelerators 1 --accelerator-type h100 --workload unet3d --category closed --results-dir /root/results/unet3d/h100/run_${r} --param reader.read_threads=24  --param reader.prefetch_size=0 --param dataset.data_folder=/6500-B7C4/unet3d --param dataset.num_files_train=37500; done
+
+for r in 1 2 3 4 5; do cd /root/storage; export OMPI_ALLOW_RUN_AS_ROOT=1; export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1; HYDRA_FULL_ERROR=1 ./benchmark.sh run --hosts 127.0.0.1 --num-accelerators 3 --accelerator-type a100 --workload unet3d --category closed --results-dir /root/results/unet3d/a100/run_${r} --param reader.read_threads=24  --param reader.prefetch_size=0 --param dataset.data_folder=/6500-B7C4/unet3d --param dataset.num_files_train=37500; done
+

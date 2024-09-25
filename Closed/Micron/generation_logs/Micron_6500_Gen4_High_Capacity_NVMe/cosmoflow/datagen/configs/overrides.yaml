@@ -1,0 +1,8 @@
+- workload=cosmoflow_a100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_files_train=1943639
+- ++workload.dataset.data_folder=/6500-B7C4
+- ++workload.dataset.num_subfolders_train=1000
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

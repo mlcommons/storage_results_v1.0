@@ -1,0 +1,11 @@
+- workload=unet3d_a100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=91000
+- ++workload.reader.read_threads=32
+- ++workload.reader.prefetch_size=0
+- ++workload.reader.transfer_size=0
+- ++workload.dataset.num_subfolders_train=1000
+- ++workload.dataset.data_folder=/mnt/weka/storage/unet3d_data_a100
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

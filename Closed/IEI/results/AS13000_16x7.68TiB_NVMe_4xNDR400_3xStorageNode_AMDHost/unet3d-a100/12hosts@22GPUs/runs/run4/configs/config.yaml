@@ -1,0 +1,34 @@
+workload:
+  model: unet3d
+  framework: pytorch
+  workflow:
+    generate_data: false
+    train: true
+    checkpoint: true
+    profiling: false
+  dataset:
+    data_folder: /mnt/ikcdir/unet3d-multi-clients-a100
+    format: npz
+    num_files_train: 924000
+    num_samples_per_file: 1
+    record_length: 146600628
+    record_length_stdev: 68341808
+    record_length_resize: 2097152
+  reader:
+    data_loader: pytorch
+    batch_size: 7
+    read_threads: 8
+    file_shuffle: seed
+    sample_shuffle: seed
+  train:
+    epochs: 5
+    computation_time: 0.636
+  checkpoint:
+    checkpoint_folder: /mnt/ikcdir/mlperf-ckpt/AS13000_16x7.68TiB_NVMe_4xNDR400_3Node_AMDHost/unet3d-a100/unet3d-multi-clients/runs/run4
+    checkpoint_after_epoch: 5
+    epochs_between_checkpoints: 2
+    model_size: 499153191
+  metric:
+    au: 0.9
+  profiling:
+    profiler: none

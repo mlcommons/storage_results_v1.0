@@ -1,0 +1,8 @@
+- workload=unet3d_h100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_files_train=840000
+- ++workload.dataset.data_folder=/mnt/mltest/unet3d_data
+- ++workload.dataset.num_subfolders_train=48
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

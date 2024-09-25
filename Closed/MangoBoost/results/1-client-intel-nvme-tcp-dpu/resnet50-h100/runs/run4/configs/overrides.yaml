@@ -1,0 +1,8 @@
+- workload=resnet50_h100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=20463
+- ++workload.dataset.data_folder=/mnt/mlperf_storage/resnet50_data
+- ++workload.reader.read_threads=10
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

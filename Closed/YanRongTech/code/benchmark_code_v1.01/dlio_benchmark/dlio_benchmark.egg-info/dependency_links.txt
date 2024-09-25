@@ -1,0 +1,2 @@
+https://download.pytorch.org/whl/cpu
+https://developer.download.nvidia.com/compute/redist

@@ -1,0 +1,61 @@
+{
+    "overall": {
+        "model": "cosmoflow",
+        "accelerator": "h100",
+        "num_benchmark_runs": 5,
+        "train_num_accelerators": "18",
+        "num_files_train": 1429258,
+        "num_samples_per_file": 1,
+        "train_throughput_mean_samples_per_second": 3745.2203240199133,
+        "train_throughput_stdev_samples_per_second": 2.541920109644804,
+        "train_throughput_mean_MB_per_second": 10102.56123867587,
+        "train_throughput_stdev_MB_per_second": 6.856713717697918
+    },
+    "runs": {
+        "run5": {
+            "train_throughput_samples_per_second": 3743.5734776488607,
+            "train_throughput_MB_per_second": 10098.118945599666,
+            "train_num_accelerators": "18",
+            "model": "cosmoflow",
+            "accelerator": "h100",
+            "num_files_train": 1429258,
+            "num_samples_per_file": 1
+        },
+        "run3": {
+            "train_throughput_samples_per_second": 3742.1264016545115,
+            "train_throughput_MB_per_second": 10094.215524015583,
+            "train_num_accelerators": "18",
+            "model": "cosmoflow",
+            "accelerator": "h100",
+            "num_files_train": 1429258,
+            "num_samples_per_file": 1
+        },
+        "run1": {
+            "train_throughput_samples_per_second": 3747.899610255035,
+            "train_throughput_MB_per_second": 10109.78849126036,
+            "train_num_accelerators": "18",
+            "model": "cosmoflow",
+            "accelerator": "h100",
+            "num_files_train": 1429258,
+            "num_samples_per_file": 1
+        },
+        "run4": {
+            "train_throughput_samples_per_second": 3748.5661139595636,
+            "train_throughput_MB_per_second": 10111.586354645759,
+            "train_num_accelerators": "18",
+            "model": "cosmoflow",
+            "accelerator": "h100",
+            "num_files_train": 1429258,
+            "num_samples_per_file": 1
+        },
+        "run2": {
+            "train_throughput_samples_per_second": 3743.936016581594,
+            "train_throughput_MB_per_second": 10099.096877857977,
+            "train_num_accelerators": "18",
+            "model": "cosmoflow",
+            "accelerator": "h100",
+            "num_files_train": 1429258,
+            "num_samples_per_file": 1
+        }
+    }
+}

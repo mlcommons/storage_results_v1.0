@@ -1,0 +1,144 @@
+{
+  "networks": [
+    {
+      "network_name": "Client",
+      "network_type": "Ethernet",
+      "bitrate": 100,
+      "protocols": [
+        "NVMe/TCP"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "node_type_name": "Client",
+      "node_model_name": "SYS-421GE-TNRT3",
+      "node_vendor_name": "Supermicro",
+      "config_options": [
+        "echo 3 > /proc/sys/vm/pagecache"
+      ],
+      "CPU": {
+        "vendor_and_model_name": "Intel(R) Xeon(R) Gold 6438N",
+        "socket_count": 2,
+        "cores_per_socket": 32,
+        "threads_per_socket": 64,
+        "base_frequency": 2.0,
+        "boost_frequency": 3.6
+      },
+      "DRAM": {
+        "capacity_MiB": 488281,
+        "class": "DDR5",
+        "frequency": 4800
+      },
+      "accelerators": [],
+      "nic_ports": [
+        {
+          "network_name": "Client",
+          "bitrate": 100,
+          "count_of_this_type": 4,
+          "protocols": [
+            "NVMe/TCP"
+          ]
+        }
+      ],
+      "drives": [
+        {
+          "purpose": [
+            "OS"
+          ],
+          "drive_type": "SSD",
+          "capacity_GiB": 447.13,
+          "interface": "SATA",
+          "count_of_this_type": 1
+        }
+      ]
+    },
+    {
+      "node_type_name": "Storage Server",
+      "node_model_name": "Ultra SuperServer SYS-220U-TNR",
+      "node_vendor_name": "Supermicro",
+      "config_options": [],
+      "CPU": {
+        "vendor_and_model_name": "Intel Xeon Gold 6348 CPU",
+        "socket_count": 2,
+        "cores_per_socket": 28,
+        "threads_per_socket": 56,
+        "base_frequency": 2.6,
+        "boost_frequency": 3.5
+      },
+      "DRAM": {
+        "capacity_MiB": 488281,
+        "class": "DDR4",
+        "frequency": 3200
+      },
+      "accelerators": [],
+      "nic_ports": [
+        {
+          "network_name": "Client",
+          "bitrate": 100,
+          "count_of_this_type": 4,
+          "protocols": [
+            "NVMe/TCP"
+          ]
+        }
+      ],
+      "drives": [
+        {
+          "purpose": [
+            "OS"
+          ],
+          "drive_type": "SSD",
+          "capacity_GiB": 447.13,
+          "interface": "SATA",
+          "count_of_this_type": 1
+        },
+        {
+          "purpose": [
+            "Data"
+          ],
+          "drive_type": "SSD",
+          "capacity_GiB": 2980.23,
+          "interface": "NVMe",
+          "count_of_this_type": 16
+        }
+      ]
+    }
+  ],
+  "benchmark_hosts": [
+    {
+      "node_name": "eval2",
+      "node_type_name": "Client",
+      "benchmark_instances": [
+        {
+          "mapping_type": "native",
+          "cpu_cores": 64,
+          "DRAM_MiB": 488281
+        }
+      ]
+    }
+  ],
+  "storage_system": {
+    "vendor_name": "Supermicro",
+    "solution_name": "MangoBoost NVMe/TCP Target Offloading",
+    "model_name": "Ultra SuperServer SYS-220U-TNR",
+    "version": "0123456789",
+    "software_defined": "no",
+    "hyperconverged": "no",
+    "solution_type": "Remote DAS - NVMe/TCP",
+    "client_mount_options": [],
+    "usable_capacity_GiB": 48828,
+    "raw_capacity_GiB": 48828,
+    "software_components": [
+      {
+        "component_name": "MangoBoost SPDK driver",
+        "description": "Provide MangoBoost DPU device driver and NVMe/TCP target.",
+        "runnable_node_type_name": [
+          "Storage Server"
+        ],
+        "connecting_components": [
+          "Client"
+        ]
+      }
+    ]
+  }
+}

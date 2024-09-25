@@ -1,0 +1,225 @@
+{
+	"networks": [
+		{
+			"network_name": "client",
+			"network_type": "Ethernet",
+			"bitrate": 50,
+			"protocols": [ "NVMe-oF" ]
+		},
+		{
+			"network_name": "backend",
+			"network_type": "Ethernet",
+			"bitrate": 25,
+			"protocols": [ "NVMe-oF" ]
+		}
+	],
+	"nodes": [
+		{
+			"node_type_name": "client",
+			"node_model_name": "c6in.8xlarge",
+			"node_vendor_name": "AWS",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "Intel Xeon 8375C (Ice Lake)",
+				"cores_per_socket": 32,
+				"base_frequency": 3.5
+			},
+			"DRAM": {
+				"capacity_MiB": 65536,
+				"class": "Other"
+			},
+			"accelerators": [
+				{
+					"vendor_and_model": "NVIDIA H100", "count_of_this_type": 32
+				}
+			],
+			"nic_ports": [
+				{
+					"network_name": "client",
+					"bitrate": 50,
+					"count_of_this_type": 1,
+					"protocols": [ "NVMe-oF" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Holds the OS" ],
+					"drive_type": "Other",
+					"capacity_GiB": 20,
+					"interface": "NVMe",
+					"count_of_this_type": 1
+				}
+			 ]
+		},
+		{
+			"node_type_name": "data-1",
+			"node_model_name": "i3en.6xlarge",
+			"node_vendor_name": "AWS",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "Intel Xeon Platinum 8175",
+				"cores_per_socket": 24,
+				"base_frequency": 3.1
+			},
+			"DRAM": {
+				"capacity_MiB": 196608,
+				"class": "Other"
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "client+backend",
+					"bitrate": 25,
+					"count_of_this_type": 1,
+					"protocols": [ "NVMe-oF" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Holds the bulk user data" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 7500,
+					"interface": "NVMe",
+					"count_of_this_type": 2
+				},
+				{
+					"purpose": [ "Holds the OS" ],
+					"drive_type": "Other",
+					"capacity_GiB": 5000,
+					"interface": "NVMe",
+					"count_of_this_type": 1
+				}
+			]
+		},
+		{
+			"node_type_name": "data-2",
+			"node_model_name": "i3en.6xlarge",
+			"node_vendor_name": "AWS",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "Intel Xeon Platinum 8175",
+				"cores_per_socket": 24,
+				"base_frequency": 3.1
+			},
+			"DRAM": {
+				"capacity_MiB": 196608,
+				"class": "Other"
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "client+backend",
+					"bitrate": 25,
+					"count_of_this_type": 1,
+					"protocols": [ "NVMe-oF" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Hold the bulk user data" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 7500,
+					"interface": "NVMe",
+					"count_of_this_type": 2
+				},
+				{
+					"purpose": [ "Hold the OS" ],
+					"drive_type": "Other",
+					"capacity_GiB": 5000,
+					"interface": "NVMe",
+					"count_of_this_type": 1
+				}
+			]
+		},
+		{
+			"node_type_name": "data-3",
+			"node_model_name": "i3en.6xlarge",
+			"node_vendor_name": "AWS",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "Intel Xeon Platinum 8175",
+				"cores_per_socket": 24,
+				"base_frequency": 3.1
+			},
+			"DRAM": {
+				"capacity_MiB": 196608,
+				"class": "Other"
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "client+backend",
+					"bitrate": 25,
+					"count_of_this_type": 1,
+					"protocols": [ "NVMe-oF" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Hold the bulk user data" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 7500,
+					"interface": "NVMe",
+					"count_of_this_type": 2
+				},
+				{
+					"purpose": [ "Hold the OS" ],
+					"drive_type": "Other",
+					"capacity_GiB": 5000,
+					"interface": "NVMe",
+					"count_of_this_type": 1
+				}
+			]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "benchmark-1",
+			"node_type_name": "client",
+			"benchmark_instances": [
+				{
+					"mapping_type": "native"
+				}
+			]
+		}
+	],
+	"storage_system": {
+		"vendor_name": "Simplyblock",
+		"solution_name": "Simplyblock",
+		"model_name": "Simplyblock",
+		"version": "v1.0-Pre",
+		"software_defined": "yes",
+		"hyperconverged": "no",
+		"solution_type": "Remote DAS",
+		"client_mount_options": [ ],
+		"solution_config_options": [ ],
+		"usable_capacity_GiB": 20000,
+		"raw_capacity_GiB": 33750,
+		"software_components": [
+			{
+				"component_name": "XFS Filesystem",
+				"runnable_node_type_name": [ "client" ],
+				"description": "Used as filesystem on top of the LVM volume",
+				"connecting_components": [ "client" ]
+			},
+			{
+				"component_name": "Linux Volume Manager (LVM)",
+				"runnable_node_type_name": [ "client" ],
+				"description": "Used to combine 3 simplyblock NVMe-of volumes into a single LVM one",
+				"connecting_components": [ "client" ]
+			},
+			{
+				"component_name": "NVMe Linux Stack (client)",
+				"runnable_node_type_name": [ "client" ],
+				"description": "NVMe-oF connection to the storage nodes",
+				"connecting_components": [ "data" ]
+			},
+			{
+				"component_name": "Data Storage (Simplyblock)",
+				"description": "Stores the distributed data chunks",
+				"runnable_node_type_name": [ "data" ],
+				"connecting_components": [ "client", "data" ]
+			}
+		]
+	}
+}

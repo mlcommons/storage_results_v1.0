@@ -1,0 +1,9 @@
+- workload=unet3d_h100
+- ++workload.workflow.generate_data=False
+- ++workload.workflow.train=True
+- ++workload.dataset.num_files_train=455000
+- ++workload.dataset.data_folder=/mnt/ikcdir/unet3d-multi-client
+- ++workload.reader.read_threads=8
+- ++workload.checkpoint.checkpoint_folder=/mnt/ikcdir/mlperf-ckpt/AS13000_16x7.68TiB_NVMe_4xNDR400_3Node_AMDHost/unet3d-h100/unet3d-multi-clients/runs/run5
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

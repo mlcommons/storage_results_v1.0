@@ -1,0 +1,30 @@
+workload:
+  model: cosmoflow
+  framework: tensorflow
+  workflow:
+    generate_data: false
+    train: true
+    profiling: false
+  dataset:
+    data_folder: /mnt/ikcdir/cosmoflow-dataset-multi-clients
+    num_files_train: 2186594
+    num_samples_per_file: 1
+    record_length: 2828486
+    record_length_stdev: 71311
+    format: tfrecord
+  reader:
+    data_loader: tensorflow
+    read_threads: 1
+    batch_size: 1
+    file_shuffle: seed
+    sample_shuffle: seed
+    shuffle_size: 2
+  train:
+    epochs: 5
+    computation_time: 0.0035
+  metric:
+    au: 0.7
+  checkpoint:
+    checkpoint_folder: /mnt/ikcdir/mlperf-ckpt/AS13000_16x7.68TiB_NVMe_4xNDR400_3Node_AMDHost/cosmoflow-h100/cosmoflow-multi-clients/runs/run1
+  profiling:
+    profiler: none

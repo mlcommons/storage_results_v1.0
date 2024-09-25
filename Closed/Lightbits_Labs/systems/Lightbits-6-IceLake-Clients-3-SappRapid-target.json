@@ -1,0 +1,209 @@
+{
+	"networks": [
+		{
+			"network_name": "MLperf Network",
+			"network_type": "Ethernet",
+			"bitrate": 100,
+			"protocols": [ "TCP/IP" ]
+		},
+	],
+	"nodes": [
+		{
+			"node_type_name": "client - Xeon 6338",
+			"config_options": [ "echo '40' > /proc/sys/vm/pagecache" ],
+			"CPU": {
+				"vendor_and_model_name": "Intel(R) Xeon(R) Gold 6338 CPU",
+				"socket_count": 2,
+				"cores_per_socket": 32,
+				"threads_per_socket": 64,
+				"base_frequency": 2.00,
+				"boost_frequency": 3.20
+			},
+			"DRAM": {
+				"capacity_MiB": 512,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "MLperf Network",
+					"bitrate": 100,
+					"count_of_this_type": 2,
+					"protocols": [ "TCP/IP" ]
+				}
+			],
+			"drives": [ ]
+		},
+		{
+			"node_type_name": "client - Xeon 6336Y",
+			"config_options": [ "echo '40' > /proc/sys/vm/pagecache" ],
+			"CPU": {
+				"vendor_and_model_name": "Intel(R) Xeon(R) Gold 6336Y CPU",
+				"socket_count": 2,
+				"cores_per_socket": 24,
+				"threads_per_socket": 48,
+				"base_frequency": 2.40,
+				"boost_frequency": 3.60
+			},
+			"DRAM": {
+				"capacity_MiB": 512,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "MLperf Network",
+					"bitrate": 100,
+					"count_of_this_type": 2,
+					"protocols": [ "TCP/IP" ]
+				}
+			],
+			"drives": [ ]
+		},
+		{
+			"node_type_name": "Lightbits",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "Intel® Xeon® Platinum 8480+",
+				"socket_count": 2,
+				"cores_per_socket": 56,
+				"threads_per_socket": 112,
+				"base_frequency": 2.00,
+				"boost_frequency": 3.80
+			},
+			"DRAM": {
+				"capacity_MiB": 512,
+				"class": "DDR5",
+				"frequency": 4800
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "MLperf Network",
+					"bitrate": 100,
+					"count_of_this_type": 2,
+					"protocols": [ "TCP/IP" ]
+				},
+			],
+			"drives": [
+				{
+					"purpose": [ "Used to create Lightbit's storage which would hold the bulk of user data" ],
+					"drive_type": "PCIe SSD (3D TLC)",
+					"capacity_GiB": 15360,
+					"interface": "NVMe",
+					"count_of_this_type": 16,
+					"performance": {
+						"read_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth": 7000
+						},
+						"write_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth": 5900
+						},
+						"read_iops": {
+							"xfer_size_kilobytes": 4,
+							"peak_iops": 1100000
+						},
+						"write_iops": {
+							"xfer_size_kilobytes": 4,
+							"peak_iops": 410000
+						},
+						"endurance": 1.0
+					}
+				},
+			]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "client-1",
+			"node_type_name": "client - Xeon 6338",
+			"benchmark_instances": [
+				{
+					"mapping_type": "bare metal",
+					"cpu_cores": 128,
+					"DRAM_MiB": 512
+				},
+			]
+		},
+		{
+			"node_name": "client-2",
+			"node_type_name": "client - Xeon 6338",
+			"benchmark_instances": [
+				{
+					"mapping_type": "bare metal",
+					"cpu_cores": 128,
+					"DRAM_MiB": 512
+				}
+			]
+		},
+		{
+			"node_name": "client-3",
+			"node_type_name": "client - Xeon 6338",
+			"benchmark_instances": [
+				{
+					"mapping_type": "bare metal",
+					"cpu_cores": 128,
+					"DRAM_MiB": 512
+				}
+			]
+		},
+		{
+			"node_name": "client-4",
+			"node_type_name": "client - Xeon 6336Y",
+			"benchmark_instances": [
+				{
+					"mapping_type": "bare metal",
+					"cpu_cores": 96,
+					"DRAM_MiB": 512
+				},
+			]
+		},
+		{
+			"node_name": "client-5",
+			"node_type_name": "client - Xeon 6336Y",
+			"benchmark_instances": [
+				{
+					"mapping_type": "bare metal",
+					"cpu_cores": 96,
+					"DRAM_MiB": 512
+				}
+			]
+		},
+		{
+			"node_name": "client-6",
+			"node_type_name": "client - Xeon 6336Y",
+			"benchmark_instances": [
+				{
+					"mapping_type": "bare metal",
+					"cpu_cores": 96,
+					"DRAM_MiB": 512
+				}
+			]
+		},
+	],
+	"storage_system": {
+		"vendor_name": "Lightbits Labs",
+		"solution_name": "Lightbits",
+		"model_name": "Lightbits 3-node cluster",
+		"version": "v3.9.1",
+		"software_defined": "yes",
+		"hyperconverged": "no",
+		"solution_type": "Block storage",
+		"client_mount_options": [ "noatime, nodiratime, ro" ],
+		"solution_config_options": [ "compression=false" ],
+		"usable_capacity_GiB": 522240,
+		"raw_capacity_GiB": 706560,
+		"software_components": [
+			{
+				"component_name": "Lightbits software",
+				"description": "Lightbits software installed on baremetal servers",
+				"runnable_node_type_name": [ "Lightbits" ],
+				"connecting_components": [ "data", "metadata" ]
+			},
+		]
+	}
+}

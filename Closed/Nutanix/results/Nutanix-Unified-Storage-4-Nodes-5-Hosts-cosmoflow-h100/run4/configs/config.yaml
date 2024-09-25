@@ -1,0 +1,31 @@
+workload:
+  model: cosmoflow
+  framework: tensorflow
+  workflow:
+    generate_data: false
+    train: true
+    profiling: false
+  dataset:
+    data_folder: /mnt/data
+    num_files_train: 2429550
+    num_samples_per_file: 1
+    record_length: 2828486
+    record_length_stdev: 71311
+    format: tfrecord
+    num_subfolders_train: 320
+  reader:
+    data_loader: tensorflow
+    read_threads: 12
+    batch_size: 1
+    file_shuffle: seed
+    sample_shuffle: seed
+    shuffle_size: 2
+  train:
+    epochs: 5
+    computation_time: 0.0035
+  metric:
+    au: 0.7
+  checkpoint:
+    checkpoint_folder: /mnt/data/check
+  profiling:
+    profiler: none

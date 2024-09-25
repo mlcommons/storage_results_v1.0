@@ -1,0 +1,61 @@
+{
+    "overall": {
+        "model": "resnet50",
+        "accelerator": "a100",
+        "num_benchmark_runs": 5,
+        "train_num_accelerators": "140",
+        "num_files_train": 22382,
+        "num_samples_per_file": 1251,
+        "train_throughput_mean_samples_per_second": 116103.09675743419,
+        "train_throughput_stdev_samples_per_second": 69.98804441118345,
+        "train_throughput_mean_MB_per_second": 12695.683671402145,
+        "train_throughput_stdev_MB_per_second": 7.653078147267799
+    },
+    "runs": {
+        "run5": {
+            "train_throughput_samples_per_second": 116211.64198183976,
+            "train_throughput_MB_per_second": 12707.552914097487,
+            "train_num_accelerators": "140",
+            "model": "resnet50",
+            "accelerator": "a100",
+            "num_files_train": 22382,
+            "num_samples_per_file": 1251
+        },
+        "run4": {
+            "train_throughput_samples_per_second": 116014.11933876816,
+            "train_throughput_MB_per_second": 12685.954136249076,
+            "train_num_accelerators": "140",
+            "model": "resnet50",
+            "accelerator": "a100",
+            "num_files_train": 22382,
+            "num_samples_per_file": 1251
+        },
+        "run3": {
+            "train_throughput_samples_per_second": 116042.22009901311,
+            "train_throughput_MB_per_second": 12689.026908405544,
+            "train_num_accelerators": "140",
+            "model": "resnet50",
+            "accelerator": "a100",
+            "num_files_train": 22382,
+            "num_samples_per_file": 1251
+        },
+        "run2": {
+            "train_throughput_samples_per_second": 116134.55411933281,
+            "train_throughput_MB_per_second": 12699.123482457628,
+            "train_num_accelerators": "140",
+            "model": "resnet50",
+            "accelerator": "a100",
+            "num_files_train": 22382,
+            "num_samples_per_file": 1251
+        },
+        "run1": {
+            "train_throughput_samples_per_second": 116112.94824821712,
+            "train_throughput_MB_per_second": 12696.760915801004,
+            "train_num_accelerators": "140",
+            "model": "resnet50",
+            "accelerator": "a100",
+            "num_files_train": 22382,
+            "num_samples_per_file": 1251
+        }
+    }
+}

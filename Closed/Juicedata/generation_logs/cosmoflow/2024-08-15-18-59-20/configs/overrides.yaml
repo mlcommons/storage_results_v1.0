@@ -1,0 +1,7 @@
+- workload=cosmoflow_h100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_files_train=100000
+- ++workload.dataset.data_folder=cosmoflow_data
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

@@ -1,0 +1,220 @@
+{
+	"networks": [
+		{
+			"network_name": "Client",
+			"network_type": "InfiniBand",
+			"bitrate": 400,
+			"protocols": [ "RDMA" ]
+		},
+		{
+			"network_name": "Cluster",
+			"network_type": "InfiniBand",
+			"bitrate": 400,
+			"protocols": [ "RDMA" ]
+		}
+	],
+	"nodes": [
+		{
+			"node_type_name": "Client",
+			"config_options": [  ],
+			"CPU": {
+				"vendor_and_model_name": "AMD EPYC 9554 64-Core Processor",
+				"socket_count": 1,
+				"cores_per_socket": 64,
+				"threads_per_socket": 128,
+				"base_frequency": 3.1,
+				"boost_frequency": 3.75
+			},
+			"DRAM": {
+				"capacity_MiB": 192805,
+				"class": "DDR5",
+				"frequency": 4800
+			},
+			"accelerators": [ 
+				{ "vendor_and_model": "unet3d：NVIDIA H100", "count_of_this_type": 16 },
+				{ "vendor_and_model": "unet3d：NVIDIA A100", "count_of_this_type": 31 },
+				{ "vendor_and_model": "cosmoflow：NVIDIA H100", "count_of_this_type": 23 },
+				{ "vendor_and_model": "cosmoflow：NVIDIA A100", "count_of_this_type": 37 }
+			],
+			"nic_ports": [
+				{
+					"network_name": "Client",
+					"bitrate": 400,
+					"count_of_this_type": 1,
+					"protocols": [ "RDMA" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Hold the OS" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 480,
+					"interface": "SATA",
+					"count_of_this_type": 2
+				}
+		       	]
+		},
+		{
+			"node_type_name": "Cluster",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "Intel(R) Xeon(R) Gold 6430",
+				"socket_count": 2,
+				"cores_per_socket": 32,
+				"threads_per_socket": 64,
+				"base_frequency": 2.10,
+				"boost_frequency": 3.40
+			},
+			"DRAM": {
+				"capacity_MiB": 257114,
+				"class": "DDR5",
+				"frequency": 4800
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "Cluster",
+					"bitrate": 400,
+					"count_of_this_type": 4,
+					"protocols": [ "RDMA" ]
+				}
+			],
+			"drives": [
+				{
+					"purpose": [ "Hold the OS" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 480,
+					"interface": "SATA",
+					"count_of_this_type": 2
+				},
+				{
+					"purpose": [ "Hold the metadata and data" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 7864,
+					"interface": "NVMe",
+					"count_of_this_type": 16,
+					"performance": {
+						"read_bandwidth": {
+							"xfer_size_kilobytes": 512,
+							"peak_bandwidth": 14
+						},
+						"write_bandwidth": {
+							"xfer_size_kilobytes": 512,
+							"peak_bandwidth": 6
+						},
+						"read_iops": {
+							"xfer_size_kilobytes": 4,
+							  "peak_iops": 2500000 
+						},
+						"write_iops": {
+							"xfer_size_kilobytes": 4,
+							  "peak_iops": 300000
+						},
+						"endurance": 1.0
+					}
+				}
+		       	]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "client10",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client11",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client12",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client13",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client77",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client78",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client220",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client221",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client223",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client224",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client225",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		},
+		{
+			"node_name": "client231",
+			"node_type_name": "Client",
+			"benchmark_instances": [ { "mapping_type": "native" } ]
+		}
+	],
+	"storage_system": {
+		"vendor_name": "IEIT SYSTEMS",
+		"solution_name": "AS13000",
+		"model_name": "G7-MN24",
+		"version": "v7.1",
+		"software_defined": "no",
+		"hyperconverged": "no",
+		"solution_type": "Proprietary - ICFS",
+		"client_mount_options": [ "rasize=8388608" ],
+		"solution_config_options": [ ],
+		"usable_capacity_GiB": 172032,
+		"raw_capacity_GiB": 344064,
+		"software_components": [
+			{
+				"component_name": "ikc",
+				"description": "Private File System Client",
+				"runnable_node_type_name": [ "Client" ],
+				"connecting_components": [ "mcc","dms", "oss" ]
+			},
+			{
+				"component_name": "mcc",
+				"description": "cluster manager and controllers",
+				"runnable_node_type_name": [ "Cluster" ],
+				"connecting_components": [ "ikc", "dms","oss" ]
+			},
+			{
+				"component_name": "dms",
+				"description": "metadata management server",
+				"runnable_node_type_name": [ "Cluster" ],
+				"connecting_components": [ "ikc", "mcc","oss" ]
+			},
+			{
+				"component_name": "oss",
+				"description": "date storage server",
+				"runnable_node_type_name": [ "Cluster" ],
+				"connecting_components": [ "ikc", "dms","mcc" ]
+			}
+		]
+	}
+}

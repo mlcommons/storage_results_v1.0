@@ -1,0 +1,29 @@
+workload:
+  model: cosmoflow
+  framework: tensorflow
+  workflow:
+    generate_data: true
+    train: false
+    profiling: false
+  dataset:
+    data_folder: /mnt/weka/storage/cosmoflow_data_a100
+    num_files_train: 3887279
+    num_samples_per_file: 1
+    record_length: 2828486
+    record_length_stdev: 71311
+    format: tfrecord
+    num_subfolders_train: 987
+  reader:
+    data_loader: tensorflow
+    read_threads: 4
+    batch_size: 1
+    file_shuffle: seed
+    sample_shuffle: seed
+    shuffle_size: 2
+  train:
+    epochs: 5
+    computation_time: 0.00551
+  metric:
+    au: 0.7
+  profiling:
+    profiler: none

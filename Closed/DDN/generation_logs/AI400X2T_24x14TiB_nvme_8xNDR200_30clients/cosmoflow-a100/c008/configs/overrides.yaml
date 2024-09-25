@@ -1,0 +1,9 @@
+- workload=cosmoflow_a100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_files_train=5580372
+- ++workload.dataset.data_folder=/lustre/mlperf/client/datagen_cosmoflow_a100
+- ++workload.storage.storage_type=local_fs
+- ++workload.storage.storage_root=/lustre/mlperf/client
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

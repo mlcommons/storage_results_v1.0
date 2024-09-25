@@ -1,0 +1,7 @@
+- workload=unet3d_h100
+- ++workload.workflow.generate_data=True
+- ++workload.workflow.train=False
+- ++workload.dataset.num_files_train=75000
+- ++workload.dataset.num_subfolders_train=1000
+- ++workload.workflow.profiling=False
+- ++workload.profiling.profiler=none

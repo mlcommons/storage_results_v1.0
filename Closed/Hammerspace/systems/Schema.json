@@ -1,0 +1,448 @@
+{
+    "$id": "https://example.com/person.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "SystemDescription",
+    "type": "object",
+    "properties": {
+	"networks": {
+	    "description": "An array of the distinct networks defined for this solution",
+	    "type": "array",
+	    "items": {
+		"type": "object",
+		"properties": {
+		    "network_name": {
+			"description": "The name or purpose of this network",
+			"type": "string"
+		    },
+		    "network_type": {
+			"description": "The base technology of this network, eg: ethernet, IB, etc",
+			"type": "string",
+			"enum": [ "Ethernet", "InfiniBand", "Other" ]
+		    },
+		    "bitrate": {
+			"description": "The speed, in Gb/s",
+			"type": "number",
+			"minimum": 0
+		    },
+		    "protocols": {
+			"description": "A list of the protocol(s) used on this network (eg: NFSv4.2, RDMA, etc)",
+			"type": "array",
+			"items": {
+			    "type": "string"
+			}
+		    }
+		},
+		"required": [ "network_name", "network_type", "bitrate", "protocols" ]
+	    }
+	},
+	"nodes": {
+	    "description": "An array of the types of hardware nodes defined for this solution",
+	    "type": "array",
+	    "items": {
+		"type": "object",
+		"properties": {
+		    "node_type_name": {
+			"description": "The name of this type of node, for reference by software components",
+			"type": "string"
+		    },
+		    "node_model_name": {
+			"type": "string",
+			"description": "Exact model description of the component"
+		    },
+		    "node_vendor_name": {
+			"type": "string",
+			"description": "Vendor name"
+		    },
+		    "max_power_consumption": {
+			"type": "number",
+			"description": "Maximum power consumption in Watts"
+		    },
+		    "config_options": {
+			"description": "The configuration options set for this type of node during this test run",
+			"type": "array",
+			"items": {
+			    "type": "string"
+			}
+		    },
+		    "CPU": {
+			"description": "The CPU used in this node",
+			"type": "object",
+			"properties": {
+			    "vendor_and_model_name": {
+				"description": "The vendor and model of this CPU",
+				"type": "string"
+			    },
+			    "socket_count": {
+				"description": "The number of CPU sockets",
+				"type": "number",
+				"minimum": 1
+			    },
+			    "cores_per_socket": {
+				"description": "The number of cores per socket",
+				"type": "number",
+				"minimum": 1
+			    },
+			    "threads_per_socket": {
+				"description": "The number of threads per socket",
+				"type": "number",
+				"minimum": 1
+			    },
+			    "base_frequency": {
+				"description": "The base frequency in GHz",
+				"type": "number",
+				"minimum": 1
+			    },
+			    "boost_frequency": {
+				"description": "The max frequency in GHz",
+				"type": "number",
+				"minimum": 1
+			    }
+			},
+			"required": [ "vendor_and_model_name" ]
+		    },
+		    "DRAM": {
+			"description": "The DRAM used in this node",
+			"type": "object",
+			"properties": {
+			    "capacity_MiB": {
+				"description": "The total capacity in GiB",
+				"type": "number",
+				"minimum": 1
+			    },
+			    "class": {
+				"description": "The type of DRAM, eg: DDR5",
+				"type": "string",
+				"enum": [ "DDR3", "DDR4", "DDR5", "Other" ]
+			    },
+			    "frequency": {
+				"description": "The base frequency in MHz",
+				"type": "number",
+				"minimum": 1
+			    }
+			},
+			"required": [ "capacity_MiB" ]
+		    },
+		    "accelerators": {
+			"description": "The vendor and model of accelerator(s), eg: NVIDIA H100",
+			"type": "array",
+			"items": {
+			    "type": "object",
+			    "properties": {
+				"vendor_and_model": {
+				    "description": "The vendor and model of accelerator, eg: NVIDIA H100",
+				    "type": "string"
+				},
+				"count_of_this_type": {
+				    "description": "The number of such accelerators in this node",
+				    "type": "number",
+				    "minimum": 0
+				}
+			    },
+			    "required": [ "vendor_and_model", "count_of_this_type" ]
+			}
+		    },
+		    "nic_ports": {
+			"description": "The NIC port(s) used in this node",
+			"type": "array",
+			"items": {
+			    "type": "object",
+			    "properties": {
+				"network_name": {
+				    "description": "The name or purpose of the network this NIC port connects to",
+				    "type": "string"
+				},
+				"bitrate": {
+				    "description": "The speed, in Gb/s",
+				    "type": "number",
+				    "minimum": 0
+				},
+				"count_of_this_type": {
+				    "description": "The number of this type dnd purpose of NIC port",
+				    "type": "number",
+				    "minimum": 0
+				},
+				"protocols": {
+				    "description": "A list of the protocol(s) used on this network",
+				    "type": "array",
+				    "items": {
+					"type": "string"
+				    }
+				}
+			    },
+			    "required": [ "network_name", "bitrate", "count_of_this_type", "protocols" ]
+			}
+		    },
+		    "drives": {
+			"description": "All drive(s) that store data, metadata, or the OS",
+			"type": "array",
+			"items": {
+			    "type": "object",
+			    "properties": {
+				"purpose": {
+				    "description": "The type of content this drive stores, eg: data, metadata, OS, etc",
+				    "type": "array",
+				    "items": {
+					"type": "string"
+				    }
+				},
+				"drive_type": {
+				    "description": "The base technology of this drive, eg: SSD, HDD, PMEM, etc",
+				    "type": "string",
+				    "enum": [ "Memory", "SSD", "Flash", "HDD", "PMEM", "Other" ]
+				},
+				"capacity_GiB": {
+				    "description": "The capacity of this drive, in GiB",
+				    "type": "number",
+				    "minimum": 1
+				},
+				"interface": {
+				    "description": "The interface used by this drive, eg: NVMe, SATA, etc",
+				    "type": "string",
+				    "enum": [ "USB", "SATA", "SAS", "NVMe", "NVDIMM", "PCIe", "Other" ]
+				},
+				"count_of_this_type": {
+				    "description": "The number of this type dnd purpose of drive",
+				    "type": "number",
+				    "minimum": 0
+				},
+				"performance": {
+				    "description": "A list of the performance properties of this drive",
+				    "type": "object",
+				    "items": {
+					"read_bandwidth": {
+					    "description": "The peak streaming read bandwidth of this drive",
+					    "type": "object",
+					    "properties": {
+						"xfer_size_kilobytes": {
+						    "description": "The transfer size used for this test, in KiB",
+						    "type": "number",
+						    "minimum": 0
+						},
+						"peak_bandwidth": {
+						    "description": "The peak bandwidth, in GiB/s",
+						    "type": "number",
+						    "minimum": 0
+						}
+					    },
+					    "required": [ "xfer_size_kilobytes", "peak_bandwidth" ]
+					},
+					"write_bandwidth": {
+					    "description": "The peak streaming write bandwidth of this drive",
+					    "type": "object",
+					    "properties": {
+						"xfer_size_kilobytes": {
+						    "description": "The transfer size used for this test, in KiB",
+						    "type": "number",
+						    "minimum": 0
+						},
+						"peak_bandwidth": {
+						    "description": "The peak bandwidth, in GiB/s",
+						    "type": "number",
+						    "minimum": 0
+						}
+					    },
+					    "required": [ "xfer_size_kilobytes", "peak_bandwidth" ]
+					},
+					"read_iops": {
+					    "description": "The peak random read IOPs of this drive",
+					    "type": "object",
+					    "properties": {
+						"xfer_size_kilobytes": {
+						    "description": "The transfer size used for this test, in KiB",
+						    "type": "number",
+						    "minimum": 0
+						},
+						"peak_iops": {
+						    "description": "The peak I/O operations per second, in KiB/s",
+						    "type": "number",
+						    "minimum": 0
+						}
+					    },
+					    "required": [ "xfer_size_kilobytes", "peakiops" ]
+					},
+					"write_iops": {
+					    "description": "The peak random write IOPs of this drive",
+					    "type": "object",
+					    "properties": {
+						"xfer_size_kilobytes": {
+						    "description": "The transfer size used for this test, in KiB",
+						    "type": "number",
+						    "minimum": 0
+						},
+						"peak_iops": {
+						    "description": "The peak I/O operations per second, in KiB/s",
+						    "type": "number",
+						    "minimum": 0
+						}
+					    },
+					    "required": [ "xfer_size_kilobytes", "peakiops" ]
+					},
+					"endurance": {
+					    "description": "The maximum warrantied drive writes per day of this drive",
+					    "type": "number",
+					    "minimum": 0
+					}
+				    }
+				}
+			    },
+			    "required": [ "drive_type", "capacity_GiB", "count_of_this_type" ]
+			}
+		    }
+		},
+		"required": [ "node_type_name", "config_options", "CPU", "DRAM", "accelerators", "nic_ports", "drives" ]
+	    }
+	},
+	"benchmark_hosts": {
+	    "description": "An array of the nodes used to run the benchmark",
+	    "type": "array",
+	    "items": {
+		"type": "object",
+		"properties": {
+		    "node_name": {
+			"description": "The unique name of this node",
+			"type": "string"
+		    },
+		    "node_type_name": {
+			"description": "The name of the type of node being used",
+			"type": "string"
+		    },
+		    "benchmark_instances": {
+			"description": "An array of benchmark instances on this node",
+			"type": "array",
+			"items": {
+			    "type": "object",
+			    "properties": {
+				"mapping_type": {
+				    "description": "What encapsulation technique was used for this instance, if any",
+				    "type": "string",
+				    "enum":[ "container", "guest", "native" ],
+				    "default": "native"
+				}
+			    },
+			    "required": [ "mapping_type" ],
+			    "if": {
+				"properties": {
+				    "mapping_type": { "const": "native" }
+				}
+			    },
+			    "else": {
+				"properties": {
+				    "cpu_cores": {
+					"description": "How many CPU cores were given to this instance",
+					"type": "number",
+					"minimum": 1
+				    },
+				    "DRAM_MiB": {
+					"description": "The amount of DRAM given to this instance (in GiB)",
+					"type": "number",
+					"minimum": 1
+				    }
+				},
+				"required": [ "cpu_cores", "DRAM_MiB" ]
+			    }
+			}
+		    }
+		},
+		"required": [ "node_name", "node_type_name", "benchmark_instances" ]
+	    }
+	},
+	"storage_system": {
+	    "description": "A description of the storage solution under test",
+	    "type": "object",
+	    "properties": {
+		"vendor_name": {
+		    "description": "Name of the group that created the storage solution (eg: company name)",
+		    "type": "string"
+		},
+		"solution_name": {
+		    "description": "Name of the storage solution or product",
+		    "type": "string"
+		},
+		"model_name": {
+		    "description": "Name that wraps the whole configuration (e.g. DDN AI400X vs. AI400X2)",
+		    "type": "string"
+		},
+		"version": {
+		    "description": "Version of the software",
+		    "type": "string"
+		},
+		"software_defined": {
+		    "description": "Will the software run on customer-provided hardware?",
+		    "type": "string",
+		    "enum":[ "yes", "no" ]
+		},
+		"hyperconverged": {
+		    "desc": "Was this run performed on hardware dedicated to the storage software?",
+		    "type": "string",
+		    "enum":[ "yes", "no" ]
+		},
+		"solution_type": {
+		    "description": "The overall type of storage solution",
+		    "type": "string",
+		    "pattern": "(DAS|Remote DAS|NAS|Proprietary|Object|Other) - .*"
+		},
+		"client_mount_options": {
+		    "description": "The options used in the mount command on the client",
+		    "type": "array",
+		    "items": {
+			"type": "string"
+		    }
+		},
+		"solution_config_options": {
+		    "description": "The solution configuration options set for this test run",
+		    "type": "array",
+		    "items": {
+			"type": "string"
+		    }
+		},
+		"usable_capacity_GiB": {
+		    "description": "Usable capacity of the overall storage system in GiB",
+		    "type": "number",
+		    "minimum": 1
+		},
+		"raw_capacity_GiB": {
+		    "description": "Capacity of the overall storage system without redundancy (eg: sum of drive capcities) in GiB",
+		    "type": "number",
+		    "minimum": 1
+		},
+		"software_components": {
+		    "description": "An array of the distinct software components that make up this solution",
+		    "type": "array",
+		    "items": {
+			"type": "object",
+			"properties": {
+			    "component_name": {
+				"description": "The name, purpose, or function of this software component",
+				"type": "string"
+			    },
+			    "description": {
+				"description": "A human-readable description of the purpose or function of this software component",
+				"type": "string"
+			    },
+			    "runnable_node_type_name": {
+				"description": "A list of the types of nodes this software component can run on",
+				"type": "array",
+				"items": {
+				    "type": "string"
+				},
+				"required": [ "items" ]
+			    },
+			    "connecting_components": {
+				"description": "A list of the software components this connects to",
+				"type": "array",
+				"items": {
+				    "type": "string"
+				},
+				"required": [ "items" ]
+			    }
+			},
+			"required": [ "component_name", "description", "runnable_node_type_name", "connecting_components" ]
+			
+		    }
+		}
+	    },
+	    "required": [ "vendor_name", "solution_name", "model_name", "version", "software_defined", "hyperconverged", "solution_type", "client_mount_options", "usable_capacity_GiB", "raw_capacity_GiB", "software_components" ]
+	}
+    },
+    "required": [ "networks", "nodes", "benchmark_hosts", "storage_system" ]
+}

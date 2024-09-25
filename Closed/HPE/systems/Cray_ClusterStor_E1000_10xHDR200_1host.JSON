@@ -1,0 +1,165 @@
+{
+	"networks": [
+		{
+			"network_name": "client",
+			"network_type": "InfiniBand",
+			"bitrate": 200,
+			"protocols": [ "Lustre", "RDMA", "IB" ]
+		}
+
+	],
+	"nodes": [
+		{
+			"node_type_name": "client",
+			"config_options": [ "echo '40' > /proc/sys/vm/pagecache" ],
+			"CPU": {
+				"vendor_and_model_name": "AMD EPYC 7763 64-Core Processor",
+				"socket_count": 2,
+				"cores_per_socket": 64,
+				"threads_per_socket": 64,
+				"base_frequency": 2.45,
+				"boost_frequency": 2.45
+			},
+			"DRAM": {
+				"capacity_MiB": 953674,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"accelerators": [ { "vendor_and_model": "NVIDIA H100", "count_of_this_type": 6 } ],
+			"nic_ports": [
+				{
+					"network_name": "client",
+					"bitrate": 200,
+					"count_of_this_type": 2,
+					"protocols": [ "Lustre", "RDMA", "IB" ]
+				}
+			],
+			"drives": [ ]
+		},
+		{
+			"node_type_name": "metadata server",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "AMD EPYC 7502 32-Core Processor",
+				"socket_count": 1,
+				"cores_per_socket": 32,
+				"threads_per_socket": 32,
+				"base_frequency": 2.45,
+				"boost_frequency": 2.5
+			},
+			"DRAM": {
+				"capacity_MiB": 180244,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"accelerators": [ ],
+			"nic_ports": [
+				{
+					"network_name": "client",
+					"bitrate": 200,
+					"count_of_this_type": 2,
+					"protocols": ["Lustre", "RDMA", "IB" ]
+				},
+				{
+					"network_name": "backend",
+					"bitrate": 200,
+					"count_of_this_type": 2,
+					"protocols": ["Lustre", "RDMA", "IB" ]
+				}
+			],
+			"drives": [ 
+				{
+                "purpose": [ "metadata" ],
+					      "drive_type": "SSD",
+                "capacity_GiB": 3594.905,
+                "interface": "Other",
+                "count_of_this_type": 12
+            }
+        ]
+        },
+		{
+			"node_type_name": "data",
+			"config_options": [ ],
+			"CPU": {
+				"vendor_and_model_name": "AMD EPYC 7502 32-Core Processor",
+				"socket_count": 1,
+				"cores_per_socket": 32,
+				"threads_per_socket": 32,
+				"base_frequency": 3.3,
+				"boost_frequency": 2500
+			},
+			"DRAM": {
+				"capacity_MiB": 206848,
+				"class": "DDR4",
+				"frequency": 3200
+			},
+			"accelerators": [ ],
+			"drives": [
+				{
+					"purpose": [ "Hold the object data" ],
+					"drive_type": "SSD",
+					"capacity_GiB": 7152.557,
+					"interface": "NVMe",
+					"count_of_this_type": 48,
+					"performance": {
+						"read_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth GB/s": 130
+						},
+						"write_bandwidth": {
+							"xfer_size_kilobytes": 1024,
+							"peak_bandwidth GB/s": 170
+						},
+						"read_iops": {
+							"xfer_size_kilobytes": 4,
+							"peak_iops GB/s": 2450000
+						},
+						"write_iops": {
+							"xfer_size_kilobytes": 4,
+							"peak_iops GB/s": 1700000
+						},
+						"Erasure_coding": "PD-Raid",
+						"endurance": 1.0
+					}
+				}
+			]
+		}
+	],
+	"benchmark_hosts": [
+		{
+			"node_name": "HPE Apollo 6500",
+			"node_type_name": "client",
+			"benchmark_instances": [
+				{
+					"mapping_type": "container",
+					"cpu_cores": 64,
+					"DRAM_MiB": 953674
+				}
+			]
+		}
+	],
+	"storage_system": {
+		"vendor_name": "Hewlett Packard Enterprise",
+		"solution_name": "HPE Cray ClusterStor E1000",
+		"model_name": "HPE Cray ClusterStor E1000",
+		"version": "6.6",
+		"software_defined": "yes",
+		"solution_type": "Lustre",
+		"client_mount_options": ["default" ],
+		"solution_config_options": ["default" ],
+		"usable_capacity_GiB": 366010,
+		"raw_capacity_GiB": 366010,
+		"software_components": [
+			{
+				"component_name": "Cray Lustre 2.15",
+				"description": "Lustre build for both client and server",
+				"runnable_node_type_name": [ "client" ]
+			},
+			{
+				"component_name": "ClusterStor Software version 6.6",
+				"description": "Software stack for all the storage nodes",
+				"runnable_node_type_name": [ "data" ]
+			}
+		]
+	}
+}
